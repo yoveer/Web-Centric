@@ -1,0 +1,21 @@
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+.login-block{
+    background: rgb(104, 192, 236);  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom,  rgb(103, 190, 233), rgb(18, 22, 88));  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, rgb(103, 190, 233), rgb(18, 22, 88)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+width:100%;
+padding : 100px 0;
+}
+.banner-sec{background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+.container{background:rgb(204, 239, 248); border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
+.carousel-inner{border-radius:0 10px 10px 0;}
+.carousel-caption{text-align:left; left:5%;}
+.login-sec{padding: 50px 30px; position:relative;}
+.login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+.login-sec .copy-text i{color:rgb(255, 0, 0);}
+.login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: rgb(0, 64, 255);}
+.login-sec h2:after{content:" "; width:100px; height:5px; background:rgb(0, 13, 255); display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+.banner-text{width:70%; position:absolute; bottom:40px; padding-left:20px;}
+.banner-text h2{color:rgb(14, 39, 202); font-weight:600;}
+.banner-text h2:after{content:" "; width:100px; height:5px; background:rgb(40, 62, 202); display:block; margin-top:20px; border-radius:3px;}
+.banner-text p{color:rgb(92, 133, 174);}
