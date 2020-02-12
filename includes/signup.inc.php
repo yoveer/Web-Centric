@@ -80,7 +80,7 @@ if (isset($_POST['signup-submit'])){ //we know that the user clicked on submit o
 
                     mysqli_stmt_bind_param($stmt, "ssssissd", $username, $hashedPwd, $first, $last, $pnumber, $address, $email, $balance);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ../sign_up.php?signup=success");
+                    header("Location: ../signup.php?signup=success");
                     exit();
                 }
             }

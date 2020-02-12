@@ -9,6 +9,12 @@
 
 <body>
 	<?php include 'components/navigation_bar.php'; ?>
+	<?php
+            if (isset($_SESSION['userId'])) {
+                echo "welcome user";
+            }
+            
+        ?>
 	<section class="content">
 			<div>
 				<center><h2>The Manager's Choice of the week</h2></center>
