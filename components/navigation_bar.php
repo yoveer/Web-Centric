@@ -20,7 +20,7 @@
 					<?php 
 						if (isset($_SESSION['userId'])) {  // test if session has started for userId
 							echo '<li class="nav-item"> <a class="nav-link" href="account.php"><i class="material-icons">account_circle</i>My Account</a></li>';
-							if (isset($_SESSION['is_admin'])=="admin") {
+							if (($_SESSION['is_admin'])=="admin") {
 								echo '<li class="nav-item"> <a class="nav-link" href="AdminIndex.php"><i class="material-icons">book</i>Admin Page</a></li>';
 							}
 							echo '<li class="nav-item"> <a class="nav-link" href="includes/logout.inc.php"><i class="material-icons">logout</i>Logout</a></li>';
