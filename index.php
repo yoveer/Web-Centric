@@ -11,7 +11,7 @@
 	<?php include 'components/navigation_bar.php'; ?>
 	<?php
             if (isset($_SESSION['userId'])) {
-                echo "welcome user";
+                echo "welcome " . $_SESSION['userId'];
             }
             
         ?>
