@@ -1,7 +1,7 @@
 <?php
     session_start();
 ?>
-<nav class="navbar fixed-top navbar-fixed-top sticky-top navbar-expand-lg bg-dark navbar-primary " style=" height: 60px;">
+<nav class="navbar fixed-top navbar-fixed-top sticky-top navbar-expand-lg bg-dark navbar-primary " style=" height: 40px;">
 		<!--<a class="navbar-brand" href="index.php"><i class="material-icons nml">home</i>NML</a>  -->
 		<a class="navbar-brand" href="index.php">
           <img style="height: 70px;" src="https://cdn.discordapp.com/attachments/666663327153258506/673591599271510016/Test.png" alt="">
