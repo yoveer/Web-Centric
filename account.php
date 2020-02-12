@@ -7,8 +7,17 @@
 	</head>	
 
 	<body>
-		<?php include 'components/navigation_bar.php';?>
-           
+        <?php include 'components/navigation_bar.php';
+              require_once "includes/dbh.inc.php";
+              $UID=$_SESSION['userId'];
+              $sql = "SELECT * FROM User WHERE UserID=$UID";
+              $Result = $conn->query($sql);
+              if ($row = mysqli_fetch_assoc($Result)) {
+                echo $UID;
+              }
+        ?>
+        
+        
 
 
         <?php include 'components/footer.php';?>
