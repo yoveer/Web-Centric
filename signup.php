@@ -8,7 +8,10 @@
 
 <body>
   <?php include 'components/navigation_bar.php'; ?>
-
+  <?php
+    if (@$_GET['signup'] == 'success')
+      echo '<div class="copy-text"><center>You have registered successfully.<br>Welcome dear user<i class="fa fa-heart"></i></center></div>'
+  ?>
   <section class="login-block">
     <div class="container">
       <div class="row">
@@ -60,7 +63,6 @@
             <button type="submit" class="btn btn-info btn-block" value="Submit Button" name="signup-submit">Submit</button>
 
           </form>
-          <div class="copy-text">Created with <i class="fa fa-heart"></i> by Jeremie & Yoveer</div>
         </div>
         <div class="col-md-8 banner-sec">
           <div id="carouselsignup" class="carousel-slide carousel-fade" data-ride="carousel" data-interval="4000">

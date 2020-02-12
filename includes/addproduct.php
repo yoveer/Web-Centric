@@ -1,5 +1,6 @@
 <?php
     if(isset($_POST['submit-prod'])){
+        move_uploaded_file($_FILES['pi']['name'],"images/product/".$_FILES['pi']['name']);
         $v1 = "images/product/";
         $fnm = $_FILES['pi']['name']; //save image
         $dst = $v1.$fnm;
