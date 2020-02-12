@@ -1,8 +1,11 @@
 <?php
     session_start();
 ?>
-<nav class="navbar fixed-top navbar-fixed-top sticky-top navbar-expand-lg bg-dark navbar-primary ">
-		<a class="navbar-brand" href="index.php"><i class="material-icons nml">home</i>NML</a>
+<nav class="navbar fixed-top navbar-fixed-top sticky-top navbar-expand-lg bg-dark navbar-primary " style=" height: 60px;">
+		<!--<a class="navbar-brand" href="index.php"><i class="material-icons nml">home</i>NML</a>  -->
+		<a class="navbar-brand" href="index.php">
+          <img style="height: 70px;" src="https://cdn.discordapp.com/attachments/666663327153258506/673591599271510016/Test.png" alt="">
+    </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"><i class="material-icons">menu</i></span></button>
    
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
