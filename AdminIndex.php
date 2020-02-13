@@ -9,7 +9,7 @@
 
 <body>
 	<?php include 'components/navigation_bar.php'; ?>
-	<p>hey admin</p>
+	<p>Hey Cute Admin ^^</p>
 	
 	<?php include 'components/footer.php';?>
 </body>
