@@ -6,43 +6,10 @@
     </div>
 
      
-     <div class="main" id="myDIV1" style="display:none;">
+    <div class="main" id="myDIV1" style="display:none;">
         <?php
-            $sql = "SELECT * FROM Product";
-
-            $Result = $conn->query($sql);
-            ?>
-            <table class="table table-dark table-hover">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Photo</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>    
-            <?php 
-            while ($row = mysqli_fetch_assoc($Result)) { ?>
-            <form name="form1" action="showdetails.php" method="post">
-                
-                <tr class="flex-column">
-                <td><?php echo $row['Name']; ?></td>
-                <td><?php echo $row['Description']; ?></td>
-                <td>Rs <?php echo $row['Price']; ?></td>
-                <td><img src= <?php echo $row['photo']; ?> width=500px/></td>
-                <td><button type='submit' name='submit1' class=''>
-                            <i class=''></i>Show Details
-                        </button></td>
-                </tr>
-                    
-            </form>       
-            <?php
-                }//end while
-            ?>
-            </tbody>
-            </table>
+            include 'ProductPageForClient.inc.php';
+        ?>
     </div>
     <div class="main" id="myDIV2" style="display:none;">
         <h2>Add Product</h2>

@@ -17,7 +17,7 @@
         ?>
         
         <?php
-            if (($_SESSION['is_admin'])=="admin") {
+            if (isset($_SESSION['is_admin']) && ($_SESSION['is_admin']=="admin")) {
                 include 'includes/ProductPageForAdmin.inc.php';
             }
             else{

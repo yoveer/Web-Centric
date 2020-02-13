@@ -1,8 +1,5 @@
 <div class="container">
 
-
-
-<!-- eCommerce Product List - START -->
 <?php
     $sql = "SELECT * FROM Product";
 
@@ -73,7 +70,7 @@
 ?>
 
 <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script> -->
 
 
