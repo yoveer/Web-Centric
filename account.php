@@ -4,20 +4,7 @@
 		<!-- <title>2</title> -->
         <?php include 'components/header.php';?>
         <link rel="stylesheet" href="styles/searchbar.css">	
-        <style>
-            body{padding-top:30px;}
-
-            .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
-
-            small {
-            display: block;
-            line-height: 1.428571429;
-            color: #999;
-            }
-        </style>	
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        
 	</head>	
 
 	<body>
@@ -25,19 +12,19 @@
               require "includes/dbh.inc.php";
               if(isset($_SESSION['userId'])){
                   $UID = $_SESSION['userId'];
-                  $q = mysqli_query($conn,"SELECT * FROM User WHERE UserID = '$UID'");
-                  if($q === false) {
+                  $query = mysqli_query($conn,"SELECT * FROM User WHERE UserID = '$UID'");
+                  if($query === false) {
                     echo "error while executing mysql: " . mysqli_error($conn);
                    }
                    else{
-                    $r = mysqli_fetch_row($q);
-                    $fname = $r[2];
-                    $lname = $r[3];
-                    $pnum = $r[4];
-                    $add = $r[5];
-                    $email = $r[6];
-                    $bal = $r[7];
-                    $typ = $r[8]; 
+                    $row = mysqli_fetch_row($query);
+                    $fname = $row[2];
+                    $lname = $row[3];
+                    $pnum = $row[4];
+                    $add = $row[5];
+                    $email = $row[6];
+                    $bal = $row[7];
+                    $typ = $row[8]; 
                    }
                   
               }
@@ -50,34 +37,22 @@
             //   echo $bal;
             //   echo $typ;
         ?>
+        <section>
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="well well-sm">
-                        <div class="row">
-                            <div class="col-sm-6 col-md-8">
-                                <h4>
-                                    <?php echo $fname.' '.$lname ?></h4>
-                                <small><cite title="San Francisco, USA"><?php echo $add ?> <i class="glyphicon glyphicon-map-marker">
-                                </i></cite></small>
-                                <p>
-                                    <i class="glyphicon glyphicon-envelope"></i><?php echo $email?>
-                                    <br />
-                                    <i class="glyphicon glyphicon-globe"></i><?php echo $pnum ?>
-                                    <br />
-                                    <i class="glyphicon glyphicon-gift"></i><?php echo $bal ?></p>
-                                <!-- Split button -->
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary">
-                                    <?php echo $typ?> type</button>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card" style="width:400px;margin:auto;">
+                <img class="card-img-top" src="images/user/img_avatar1.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                <h4 class="card-title"><?php echo $UID ?></h4>
+                <p class="card-text">Name: <?php echo $fname.' '.$lname ?></p>
+                <p class="card-text">Email: <?php echo $email ?></p>
+                <p class="card-text">Phone Number: <?php echo $pnum ?></p>
+                <p class="card-text">Address: <?php echo $add ?></p>
+                <p class="card-text">Balance: <?php echo $bal ?></p>
+                <a href="#" class="btn btn-primary">Account Type: <?php echo $typ ?></a>
                 </div>
-            </div>
         </div>
+
+        </section>
         
         
 

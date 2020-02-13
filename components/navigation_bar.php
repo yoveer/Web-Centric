@@ -24,6 +24,7 @@
 								echo '<li class="nav-item"> <a class="nav-link" href="AdminIndex.php"><i class="material-icons">book</i>Admin Page</a></li>';
 							}
 							echo '<li class="nav-item"> <a class="nav-link" href="includes/logout.inc.php"><i class="material-icons">logout</i>Logout</a></li>';
+							echo "<p style='color:white;margin:auto;padding:0px 0px 0px 40px'>Hi, ".$_SESSION['userId']."</p>";
                         }
                         else {
                             echo '<li class="nav-item"> <a class="nav-link" href="login.php"> <i class="material-icons">person</i>Login</a> </li>
