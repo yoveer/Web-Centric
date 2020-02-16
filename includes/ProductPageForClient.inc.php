@@ -14,7 +14,7 @@
                     <span class="sr-only">Menu</span>
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
                 </button>
-                <a class="navbar-brand" href="/">YOYO</a>
+                <a class="navbar-brand" href="torma.com">YOYO</a>
             </div>
 
             <div id="navbar-cart" class="navbar-collapse collapse">
