@@ -26,13 +26,13 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <input type="button" name="view" class="btn btn-info btn-block view_data" value="view" id="<?php echo $ID ?>">
+                                    <input type="button" name="view" class="btn btn-info btn-block view_data" value="View" id="<?php echo $ID ?>">
                                     <br>
                                 </div>
                             </div>  
                             <div class="row">
                                 <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to <i class="material-icons">shopping_cart</i></a>  
+                                    <a href="#" class="btn btn-success btn-block">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></a>  
                                 </div>
                             </div>
                         </div>
