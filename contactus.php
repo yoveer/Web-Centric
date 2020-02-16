@@ -18,7 +18,7 @@
       <form action="includes/contact.inc.php" method="post">
         <div class="form-group">
           <label for="feedbackEmail">Email address</label>
-          <input type="email" name ="email" class="form-control" id="feedbackEmail" placeholder="name@example.com">
+          <input type="email" name="email" class="form-control" id="feedbackEmail" placeholder="name@example.com">
         </div>
         <div class="form-group">
           <label for="feedbackRating">Please do rate our services</label>
@@ -36,10 +36,23 @@
         </div>
         <button type="submit" name="submit-contact" class="btn btn-primary">Submit</button>
       </form>
-      <div style="padding-bottom: 20px"></div>
     </div>
+
+    <div style="padding-top: 20px">
+      <center>
+        <h2><strong>Directly send us an Email? </strong></h2>
+      </center>
+    </div>
+
+    <form action="mailto:nmltd@gmail.com" method="post" enctype="text/plain">
+      <div class="text-center">
+        <button type="submit" name="submit-contact" class="btn btn-primary">Click Here!</button>
+      </div>
+    </form>
+
+
   </section>
-  <div style="padding-bottom: 201px"></div>
+
   <?php include 'components/footer.php'; ?>
 
 </body>

@@ -137,9 +137,11 @@ footer{
 
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 .content, body{
-background: rgb(125, 229, 255);
-background: -webkit-linear-gradient(to bottom,  rgb(103, 190, 233), rgb(26, 36, 228));
-background: linear-gradient(to bottom, rgb(118, 189, 224), rgb(26, 36, 228)), no-repeat;
+  background: rgb(125, 229, 255);
+  background: -webkit-linear-gradient(to bottom,  rgb(155, 149, 243), rgb(26, 36, 228));
+  background: linear-gradient(to bottom, rgb(155, 149, 243), rgb(26, 36, 228)), no-repeat;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .left {

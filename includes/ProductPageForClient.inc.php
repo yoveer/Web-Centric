@@ -3,18 +3,18 @@
         <div class="col">
             <div class="row">
             <?php
-              $sql = "SELECT * FROM Product";
+                $sql = "SELECT * FROM Product";
 
-              $Result = $conn->query($sql);
-              while ($row = mysqli_fetch_assoc($Result)) {
+                $Result = $conn->query($sql);
+                while ($row = mysqli_fetch_assoc($Result)) {
                   $name = $row['Name'];
                   $photo = $row['photo'];
                   $desc = $row['Description'];
                   $price = $row['Price'];
                   $ID = $row['ProductID'];
             ?>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
+                <div class="col-12 col-md-6 col-lg-3" class="container">
+                    <div class="card" style="height:550xpx;">
                         <img class="card-img-top" src=<?php echo $photo ?> alt="Card image cap" >
                         <div class="card-body">
                             <h4 class="card-title"><a href="product.html" title="View Product"><?php echo $name ?></a></h4>
@@ -24,14 +24,14 @@
                                     <p class="btn btn-danger btn-block">Rs <?php echo $price ?></p>
                                 </div>
                                 <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                    <a href="#" class="btn btn-success btn-block">Add to <i class="material-icons">shopping_cart</i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <?php
-                    }//end while
+                 }//end while
                 ?>  
             </div>
         </div>

@@ -9,8 +9,8 @@
 <body>
   <?php include 'components/navigation_bar.php'; ?>
   <?php
-    if (@$_GET['signup'] == 'success')
-      echo '<div class="copy-text"><center>You have registered successfully.<br>Welcome dear user<i class="fa fa-heart"></i></center></div>'
+  if (@$_GET['signup'] == 'success')
+    echo '<div class="copy-text"><center>You have registered successfully.<br>Welcome dear user<i class="fa fa-heart"></i></center></div>'
   ?>
   <section class="login-block">
     <div class="container">
@@ -55,9 +55,9 @@
             </div>
 
 
-            <div class="form-check">
+            <div class="form-check" style="text-align: center">
               <label class="form-check-label">
-                  <a href="login.php">Already Have One Account?</a>
+                <a href="login.php">Already Have One Account?</a>
               </label>
             </div>
             <button type="submit" class="btn btn-info btn-block" value="Submit Button" name="signup-submit">Submit</button>
@@ -70,9 +70,18 @@
               <li data-target="#carouselsignup" data-slide-to="0" class="active"></li>
               <li data-target="#carouselsignup" data-slide-to="1"></li>
               <li data-target="#carouselsignup" data-slide-to="2"></li>
+              <li data-target="#carouselsignup" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
+                <img class="d-block img-fluid" src="https://cdn.discordapp.com/attachments/666663327153258506/678283398678052931/Untitled.png" alt="First slide" style="height: 100%;">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                    <h2>Join us for full access on our unique collection</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
                 <img class="d-block img-fluid" src="images/product/gf2-2.jpg" alt="First slide" style="height: 100%;">
                 <div class="carousel-caption d-none d-md-block">
                   <div class="banner-text">
