@@ -12,7 +12,11 @@
 				<ul class="navbar-nav ">
 					<li class="nav-item"> <a class="nav-link" href="About.php"><i class="material-icons">info</i> About Us </a></li>
 					<li class="nav-item"> <a class="nav-link" href="Product_collections.php"><i class="material-icons">collections</i>Product Collections</a></li>
-					<li class="nav-item"> <a class="nav-link" href="cart.php"><i class="material-icons">shopping_cart</i> Cart </a></li>
+					<?php
+						if (isset($_SESSION['userId'])) {
+							echo '<li class="nav-item"> <a class="nav-link" href="cart.php"><i class="material-icons">shopping_cart</i> Cart </a></li>';
+						}
+					?>
 					<li class="nav-item"> <a class="nav-link" href="code_of_conduct.php"><i class="material-icons">description</i>Code of Conduct</a></li>
 					<li class="nav-item"> <a class="nav-link" href="contactus.php"><i class="material-icons">mail</i>Contact US</a></li>
 					
