@@ -8,6 +8,11 @@
         $week_limit = 1;
         $added_timestamp = strtotime('+'.$week_limit.' week', time());
         $dt_limit = date('Y-m-d', $added_timestamp);
+
+        //$sql = "SELECT * FROM Cartproduct, Product WHERE Cartproduct.ProductID=Product.ProductID AND Cartproduct.ProductID = '$PID'";
+        
+        // if Qty > quantity then set Qty to quantity
+
         
         $sql = "SELECT * FROM Cartproduct WHERE ProductID = '$PID'";
         $result = mysqli_query($conn, $sql);
@@ -17,8 +22,10 @@
             $result = mysqli_query($conn, $query);
         }
         else{
-            $query = "UPDATE Cartproduct SET Qty = Qty + '$QTY' WHERE ProductID = '$PID'";
-            $result = mysqli_query($conn, $query);
+            
+                $query = "UPDATE Cartproduct SET Qty = Qty + '$QTY' WHERE ProductID = '$PID'";
+                $result = mysqli_query($conn, $query);
+            
         }
                     
         
