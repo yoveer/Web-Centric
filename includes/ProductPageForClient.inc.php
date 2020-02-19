@@ -81,21 +81,23 @@
                                 </div>
                             </div>  
                             <?php
-                            if (isset($_SESSION['userId'])) {
-                                echo '<div class="row">
-                                        <div class="col">
-                                            <input type="text" class="product-quantity" name="quantity" value="1" size="21" />
-                                        </div>
-                                        <div class="col">
-                                            <input type="submit" value="Add to Cart" name="cart-submit" class="btn btn-success btn-block"/>
-                                            <input type="hidden" name="pid" value="<?php echo $ID ?>" />
-                                        </div>
-                                    </div>';
+                            if (isset($_SESSION['userId'])) {?>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="product-quantity" name="quantity" value="1" size="21" />
+                                    </div>
+                                    <div class="col">
+                                        <button type="submit" name="cart-submit" class="btn btn-success btn-block">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button>
+                                        <input type="hidden" name="pid" value="<?php echo $ID ?>" />
+                                    </div>
+                                </div>
+                            <?php
                             }
 					        ?>
+                            <!-- <input type="submit" value="Add to Cart" name="cart-submit" class="btn btn-success btn-block"/> -->
+                            <!-- <button type="submit" name="cart-submit" class="btn btn-success btn-block">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button> -->
                         </div>
                     </div>
-                    <!-- onclick="(function(){alert('Added to cart');return false;})();return false;" -->
                 </form>
             </div>
                 
