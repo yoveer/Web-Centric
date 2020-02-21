@@ -68,13 +68,9 @@
                   $price = $row['Price'];
                   $ID = $row['ProductID'];
             ?>
-<<<<<<< HEAD
-                <div class="col-12 col-md-6 col-lg-3" class="container-fluid">
-=======
             
             <div class="col-12 col-md-6 col-lg-3" class="container-fluid">
                 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" >
->>>>>>> c26df6796a33eed67b8ae31af2c8a5340cebdaaf
                     <div class="card" style="height:550xpx;">
                         <img class="card-img-top" src=<?php echo $photo ?> alt="Card image cap" >
                         <div class="card-body">
