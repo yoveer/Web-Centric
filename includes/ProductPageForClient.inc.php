@@ -13,7 +13,7 @@
                   $price = $row['Price'];
                   $ID = $row['ProductID'];
             ?>
-                <div class="col-12 col-md-6 col-lg-3" class="container">
+                <div class="col-12 col-md-6 col-lg-3" class="container-fluid">
                     <div class="card" style="height:550xpx;">
                         <img class="card-img-top" src=<?php echo $photo ?> alt="Card image cap" >
                         <div class="card-body">
