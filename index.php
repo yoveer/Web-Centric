@@ -13,9 +13,9 @@
 	?>
 	<?php
 	if (@$_GET['login'] == 'success'){
-		echo '<script language="javascript">';
-		echo 'alert("Welcome back dude")';
-		echo '</script>';
+		echo "<div class='alert alert-success' role='success'>";
+		echo "<center>Welcome back dude</center>";
+		echo "</div>";
 	}
 	?>
     

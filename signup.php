@@ -9,14 +9,25 @@
 <body>
   <?php include 'components/navigation_bar.php'; ?>
   <?php
-  if (@$_GET['signup'] == 'success')
-    echo '<div class="copy-text"><center>You have registered successfully.<br>Welcome dear user<i class="fa fa-heart"></i></center></div>'
+  if (@$_GET['signup'] == 'success'){
+    echo "<div class='alert alert-success' role='success'>";
+    echo "<center>You have been registered successfully.<br>Welcome dear user<i class='fa fa-heart'></i><br>You can now login!</center>";
+    echo "</div>";
+  }
   ?>
   <section class="login-block">
     <div class="container">
       <div class="row">
         <div class="col-md-4 login-sec">
           <h2 class="text-center">Create Account</h2>
+          <?php
+            if(!empty($_SESSION['message'])) {
+                echo "<div class='alert alert-danger' role='alert'>";
+                echo $_SESSION['message'];
+                echo "</div>";
+                unset($_SESSION['message']);
+            }
+          ?>
           <form action="includes/signup.inc.php" method="post" onsubmit="return Validate()" name="RegForm">
           <!-- Automatic HTML Form Validation -->
           <!-- If a form field (fname) is empty, the required attribute prevents this form from being submitted -->

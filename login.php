@@ -14,6 +14,14 @@
             <div class="row">
                 <div class="col-md-4 login-sec">
                     <h2 class="text-center">Authenticate Now</h2>
+                    <?php
+                    if(!empty($_SESSION['message'])) {
+                        echo "<div class='alert alert-danger' role='alert'>";
+                        echo $_SESSION['message'];
+                        echo "</div>";
+                        unset($_SESSION['message']);
+                    }
+                    ?>
                     <form class="box" action="includes/login.inc.php" method="POST">
                     <!-- Automatic HTML Form Validation -->
                     <!-- If a form field (fname) is empty, the required attribute prevents this form from being submitted -->
