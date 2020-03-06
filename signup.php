@@ -161,8 +161,8 @@ function Validate()
         }
         }
         }
-        return false;
     } 
+    return false;
 }
 //This segment displays the validation rule for name text field.
 function inputAlphabet(inputtext, alertMsg){
