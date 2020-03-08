@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -61,14 +62,18 @@
                 </div>
             </nav>
 
-            <h2>Welcome to the admin welcome page</h2>
-            <p>In here an admin can do all kinds of stuffs for the NML's website.</p>
-            <p>An admin can edit everything that can be edited.</p>
+            <div>
+                <?php
+                    $sql = "SELECT * FROM Product";
+                    $Result = $conn->query($sql);
+					while ($row = mysqli_fetch_assoc($Result)) {
+                ?>
+                <!-- display -->
+                <?php
+                    }
+                ?>
 
-            <div class="line"></div>
-
-            <h2>Hello Cute Admin</h2>
-            <p>Welcome back, how are you?</p>
+            </div>
 
         </div>
     </div>

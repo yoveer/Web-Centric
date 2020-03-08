@@ -8,7 +8,7 @@ if (isset($_POST['login-submit'])){
 
     if (empty($mailuid) || empty($password)){
         session_start();
-        $_SESSION['message'] = "<strong>Do not leave the fields empty!</strong> Try again.";
+        $_SESSION['message'] = "<strong>Do not leave the fields empty!</strong> <br> Try again.";
         header("Location: ../login.php");
     }
     else {
@@ -16,7 +16,7 @@ if (isset($_POST['login-submit'])){
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             session_start();
-            $_SESSION['message'] = "<strong>Problem with SQL codes!</strong> Try again.";
+            $_SESSION['message'] = "<strong>Problem with SQL codes!</strong> <br> Try again.";
             header("Location: ../login.php");
         }
         else {
@@ -27,7 +27,7 @@ if (isset($_POST['login-submit'])){
                 $pwdCheck = password_verify($password, $row['Password']);
                 if ($pwdCheck == false) {
                     session_start();
-                    $_SESSION['message'] = "<strong>Wrong password!</strong> Try again.";
+                    $_SESSION['message'] = "<strong>Wrong Username/Email and/or password!</strong> <br> Try again or <a href='signup.php'>create a new account</a>.";
                     header("Location: ../login.php");
                 }
                 else if ($pwdCheck == true) {
@@ -36,15 +36,15 @@ if (isset($_POST['login-submit'])){
                     $_SESSION['is_admin'] = $row['type'];           //session start for type of account
                     header("Location: ../index.php?login=success");
                 }
-                else {
-                    session_start();
-                    $_SESSION['message'] = "<strong>Error with repeated password!</strong> Try again.";
-                    header("Location: ../login.php");
-                }
+                // else {
+                //     session_start();
+                //     $_SESSION['message'] = "<strong>Wrong Username/Email and/or password!</strong> <br> Try again or <a href='signup.php'>create a new account</a>";
+                //     header("Location: ../login.php");
+                // }
             }
             else {
                 session_start();
-                $_SESSION['message'] = "<strong>Not a user!</strong> Try again or <a href='signup.php'>create a new account</a>";
+                $_SESSION['message'] = "<strong>Wrong Username/Email and/or password!</strong> <br> Try again or <a href='signup.php'>create a new account</a>";
                 header("Location: ../login.php");
             }
         }

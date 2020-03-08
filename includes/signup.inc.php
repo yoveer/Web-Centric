@@ -75,7 +75,7 @@ if (isset($_POST['signup-submit'])){ //we know that the user clicked on submit o
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
                 session_start();
-                $_SESSION['message'] = "<strong>Username already taken!</strong> Try again.";
+                $_SESSION['message'] = "<strong>Username already taken!</strong> Try again. <br>If this is you please <a href='login.php'>login</a>.";
                 header("Location: ../signup.php");
             }
             else {
