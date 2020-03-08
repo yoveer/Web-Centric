@@ -63,41 +63,41 @@
             </nav>
 
             <div>
-                <center><h2>Product Display</h2></center>
+                <center><h2>Customer Display</h2></center>
                 <div class="table-responsive">
                     <table class="table table-bordered table-dark table-hover">
                         <thead>
                             <tr>
-                                <th>Photo</th>
-                                <th>Product Id</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Category</th>
+                                <th>Username</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Balance</th>
                             </tr>
                         </thead>
                 <?php
-                    $sql = "SELECT * FROM Product";
+                    $sql = "SELECT * FROM User WHERE type='admin'";
                     $Result = $conn->query($sql);
 					while ($row = mysqli_fetch_assoc($Result)) {
-                        $PID = $row['ProductID'];
-                        $name = $row['Name'];
-                        $desc = $row['Description'];
-                        $price = $row['Price'];
-                        $quan = $row['Quantity'];
-                        $cat = $row['Category'];
-                        $photo = $row['photo'];
+                        $UID = $row['UserID'];
+                        $fname = $row['Firstname'];
+                        $lname = $row['Lastname'];
+                        $pnum = $row['Phonenumber'];
+                        $add = $row['Address'];
+                        $email = $row['Email'];
+                        $bal = $row['Balance'];
                 ?>
                         <tbody>
                             <tr>
-                                <td><img width="100" height="100" src=<?php echo $photo ?>></td>
-                                <td><?php echo $PID ?></td>
-                                <td><?php echo $name ?></td>
-                                <td><?php echo $desc ?></td>
-                                <td><?php echo $price ?></td>
-                                <td><?php echo $quan ?></td>
-                                <td><?php echo $cat ?></td>
+                                <td><?php echo $UID ?></td>
+                                <td><?php echo $fname ?></td>
+                                <td><?php echo $lname ?></td>
+                                <td><?php echo $pnum ?></td>
+                                <td><?php echo $add ?></td>
+                                <td><?php echo $email ?></td>
+                                <td><?php echo $bal ?></td>
                             </tr>
                         </tbody>
                 <?php

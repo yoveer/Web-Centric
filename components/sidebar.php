@@ -1,3 +1,6 @@
+<?php
+  require_once "includes/dbh.inc.php";
+?>
 <div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
@@ -16,18 +19,18 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <h2 style="color: white">Categories</h2>
+        <?php 
+          $sql = "SELECT DISTINCT Category FROM Product";
+          $Result = $conn->query($sql);
+          while ($row = mysqli_fetch_assoc($Result)) {
+            $cat = $row['Category'];
+        ?>
         <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white">Shoes<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#" style="color: white"><?php echo $cat ?><span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white">Kids<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white">Ladies<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white">Churikids<span class="sr-only">(current)</span></a>
-        </li>
+        <?php 
+          }
+        ?>
       </ul>
     </div>
   </nav>

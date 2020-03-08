@@ -67,7 +67,7 @@
 
             <div class="line"></div>
 
-            <h2>Hello Cute Admin</h2>
+            <h2>Hello Cute Admin ^_^</h2>
             <p>Welcome back, how are you?</p>
 
         </div>

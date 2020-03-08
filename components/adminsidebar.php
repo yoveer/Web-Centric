@@ -30,7 +30,7 @@
                     <a href="AdminViewProducts.php">View Products</a>
                 </li>
                 <li>
-                    <a href="#">Add Products</a>
+                    <a href="AdminAddProduct.php">Add Products</a>
                 </li>
                 <li>
                     <a href="#">Delete Products</a>
@@ -44,7 +44,7 @@
             </a>
             <ul class="collapse list-unstyled" id="customerSubmenu">
                 <li>
-                    <a href="#">View Customers</a>
+                    <a href="AdminViewCustomer.php">View Customers</a>
                 </li>
                 <li>
                     <a href="#">Add Customers</a>
@@ -61,7 +61,7 @@
             </a>
             <ul class="collapse list-unstyled" id="adminSubmenu">
                 <li>
-                    <a href="#">View Admins</a>
+                    <a href="AdminViewAdmin.php">View Admins</a>
                 </li>
                 <li>
                     <a href="#">Add Admins</a>
@@ -72,9 +72,9 @@
             </ul>
         </li>
         <li>
-            <a href="#">
-                <i class="fas fa-image"></i>
-                Portfolio
+            <a href="AdminManage.php">
+                <i class="fas fa-tasks"></i>
+                Manager choice of the week
             </a>
         </li>
         <li>
@@ -86,7 +86,6 @@
         <li>
             <a href="#">
                 <i class="fas fa-paper-plane"></i>
-                <i class="fas fa-sign-out-alt"></i>
                 Contact
             </a>
         </li>

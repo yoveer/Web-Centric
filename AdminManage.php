@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require_once "includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,50 +61,9 @@
                 </div>
             </nav>
 
-            <div>
-                <center><h2>Product Display</h2></center>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-dark table-hover">
-                        <thead>
-                            <tr>
-                                <th>Photo</th>
-                                <th>Product Id</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Category</th>
-                            </tr>
-                        </thead>
-                <?php
-                    $sql = "SELECT * FROM Product";
-                    $Result = $conn->query($sql);
-					while ($row = mysqli_fetch_assoc($Result)) {
-                        $PID = $row['ProductID'];
-                        $name = $row['Name'];
-                        $desc = $row['Description'];
-                        $price = $row['Price'];
-                        $quan = $row['Quantity'];
-                        $cat = $row['Category'];
-                        $photo = $row['photo'];
-                ?>
-                        <tbody>
-                            <tr>
-                                <td><img width="100" height="100" src=<?php echo $photo ?>></td>
-                                <td><?php echo $PID ?></td>
-                                <td><?php echo $name ?></td>
-                                <td><?php echo $desc ?></td>
-                                <td><?php echo $price ?></td>
-                                <td><?php echo $quan ?></td>
-                                <td><?php echo $cat ?></td>
-                            </tr>
-                        </tbody>
-                <?php
-                    }
-                ?>
-                    </table>
-                </div>
-            </div>
+            <h2>Manage The Manager's Choice of the week</h2>
+            
+
         </div>
     </div>
 
