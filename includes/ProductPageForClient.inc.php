@@ -30,21 +30,18 @@
                     
         
                     
-        
-                        
-                 
-                
-
-        
-
         $result = $conn->query($sql);
 
         if ($result) {
+            echo "<div class='alert alert-success' role='success'>";
             echo "<center>Added to cart successfully</center>";
+            echo "</div>";
             // header("Location: cart.php"); if you want to go to cart
         }
         else {
+            echo "<div class='alert alert-danger' role='alert'>";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "</div>";
         }
         
         

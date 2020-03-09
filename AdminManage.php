@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,25 +44,46 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<?php echo "<p style='color:blue;margin:auto;padding:0px 0px 0px 40px'>Hi, ".$_SESSION['userId']." <i class='fa fa-heart'></i></p>";?>
-                        <!-- <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul> -->
                     </div>
                 </div>
             </nav>
 
-            <h2>Manage The Manager's Choice of the week</h2>
+            <div>
+                <center><h2>Manage The Manager's Choice of the week</h2></center>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Product ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                <?php
+                    $sql = "SELECT * FROM Product, Managerchoice WHERE Product.ProductID=Managerchoice.ProductiD";
+                    $Result = $conn->query($sql);
+					while ($row = mysqli_fetch_assoc($Result)) {
+                        $PID = $row['ProductID'];
+                        $name = $row['Name'];
+                        $desc = $row['Description'];
+                        $photo = $row['photo'];
+                ?>
+                        <tbody>
+                            <tr>
+                                <td><img width="100" height="100" src=<?php echo $photo ?>></td>
+                                <td><?php echo $PID ?></td>
+                                <td><?php echo $name ?></td>
+                                <td><?php echo $desc ?></td>
+                            </tr>
+                        </tbody>
+                <?php
+                    }
+                ?>
+                    </table>
+                </div>
+            </div>
             
 
         </div>

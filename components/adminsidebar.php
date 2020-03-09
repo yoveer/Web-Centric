@@ -47,10 +47,7 @@
                     <a href="AdminViewCustomer.php">View Customers</a>
                 </li>
                 <li>
-                    <a href="#">Add Customers</a>
-                </li>
-                <li>
-                    <a href="#">Delete Customers</a>
+                    <a href="#">Flag/Ban Customers</a>
                 </li>
             </ul>
         </li>
@@ -75,18 +72,6 @@
             <a href="AdminManage.php">
                 <i class="fas fa-tasks"></i>
                 Manager choice of the week
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fas fa-question"></i>
-                FAQ
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fas fa-paper-plane"></i>
-                Contact
             </a>
         </li>
         <li>

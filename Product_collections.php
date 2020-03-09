@@ -14,15 +14,7 @@
 		<?php include 'components/navigation_bar.php';?>
         <?php include 'components/sidebar.php';
               require_once "includes/dbh.inc.php";
-        ?>
-        
-        <?php
-            if (isset($_SESSION['is_admin']) && ($_SESSION['is_admin']=="admin")) {
-                include 'includes/ProductPageForAdmin.inc.php';
-            }
-            else{
-                include 'includes/ProductPageForClient.inc.php';
-            }
+              include 'includes/ProductPageForClient.inc.php';
         ?>
         
         <?php include 'components/footer.php';?>

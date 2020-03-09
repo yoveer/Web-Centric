@@ -21,11 +21,15 @@
         $result = $conn->query($sql);
 
         if ($result) {
+            echo "<div class='alert alert-success' role='success'>";
             echo "<center>Deleted from cart successful</center>";
+            echo "</div>";
             //header("Location: cart.php");
         }
         else {
+            echo "<div class='alert alert-danger' role='alert'>";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "</div>";
         }
         
         

@@ -29,14 +29,18 @@
             $result = $conn->query($sql);
 
             if ($result) {
-                echo "Added product successfully";
+                echo "<div class='alert alert-success' role='success'>";
+                echo "<center>Added product successfully</center>";
+                echo "</div>";
                 // Upload file
                 move_uploaded_file($_FILES['pi']['tmp_name'],$dst.$_FILES['pi']['name']);
                 // header("Location: ../Product_collections.php?addprod=success");
                 // exit();
             }
             else {
+                echo "<div class='alert alert-danger' role='alert'>";
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                echo "</div>";
             }
             
 
@@ -88,20 +92,6 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<?php echo "<p style='color:blue;margin:auto;padding:0px 0px 0px 40px'>Hi, ".$_SESSION['userId']." <i class='fa fa-heart'></i></p>";?>
-                        <!-- <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul> -->
                     </div>
                 </div>
             </nav>
