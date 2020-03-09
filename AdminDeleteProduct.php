@@ -2,6 +2,39 @@
     session_start();
     require_once "includes/dbh.inc.php";
 ?>
+<?php
+    // if ($_SERVER["REQUEST_METHOD"] == "POST" ){
+    //     $ID = $_POST['pid'];
+        
+    //     $sql = "DELETE FROM Product WHERE ProductID=$ID";
+
+    //     $result = $conn->query($sql);
+
+    //     if ($result) {
+    //         echo "<center>Deleted from product successful</center>";
+    //         //header("Location: cart.php");
+    //     }
+    //     else {
+    //         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    //     }
+    //     echo $ID;  
+    // }
+    if(isset($_GET['act']) && $_GET['act']=='delete'){
+        $ID=$_GET['id'];
+        $sql = "DELETE FROM Product WHERE ProductID='$ID'";
+
+        $result = $conn->query($sql);
+
+        if ($result) {
+            echo "<center>Deleted from product successful</center>";
+        }
+        else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        
+    }
+
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -63,47 +96,48 @@
             </nav>
 
             <div>
-                <center><h2>Customer Display</h2></center>
+                <center><h2>Product Display for deletion</h2></center>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-dark table-hover">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Phone Number</th>
-                                <th>Address</th>
-                                <th>Email</th>
-                                <th>Balance</th>
-                            </tr>
-                        </thead>
-                <?php
-                    $sql = "SELECT * FROM User WHERE type='admin'";
-                    $Result = $conn->query($sql);
-					while ($row = mysqli_fetch_assoc($Result)) {
-                        $UID = $row['UserID'];
-                        $fname = $row['Firstname'];
-                        $lname = $row['Lastname'];
-                        $pnum = $row['Phonenumber'];
-                        $add = $row['Address'];
-                        $email = $row['Email'];
-                        $bal = $row['Balance'];
-                ?>
-                        <tbody>
-                            <tr>
-                                <td><?php echo $UID ?></td>
-                                <td><?php echo $fname ?></td>
-                                <td><?php echo $lname ?></td>
-                                <td><?php echo $pnum ?></td>
-                                <td><?php echo $add ?></td>
-                                <td><?php echo $email ?></td>
-                                <td><?php echo $bal ?></td>
-                            </tr>
-                        </tbody>
-                <?php
-                    }
-                ?>
-                    </table>
+                    <form  action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+                        <table class="table table-bordered table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Photo</th>
+                                    <th>Product Id</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th class="product-remove">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $sql = "SELECT * FROM Product";
+                                    $Result = $conn->query($sql);
+                                    while ($row = mysqli_fetch_assoc($Result)) {
+                                        $PID = $row['ProductID'];
+                                        $name = $row['Name'];
+                                        $cat = $row['Category'];
+                                        $photo = $row['photo'];
+                                ?>
+                                    <tr>
+                                        <td><img width="100" height="100" src=<?php echo $photo ?>></td>
+                                        <td><?php echo $PID ?></td>
+                                        <td><?php echo $name ?></td>
+                                        <td><?php echo $cat ?></td>
+                                        <!-- <td class="product-remove">
+                                            <input type="image" src="images/cart/remove.png" name="remove-order" alt="Submit Form" onclick="confirm('Are you sure you want to delete this?')"/>
+                                        </td> -->
+                                        <!-- <input type="hidden" name="pid" value='' /> -->
+                                        <td>
+                                            <a href='AdminDeleteProduct.php?act=delete&id=<?php echo $PID; ?>' onclick="confirm('Are you sure you want to delete this?')"><img alt="Delete" src="images/cart/remove.png"></a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    <form>
                 </div>
             </div>
         </div>

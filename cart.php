@@ -10,7 +10,7 @@
     <?php include 'components/navigation_bar.php'; 
         require_once "includes/dbh.inc.php";
         $UID = $_SESSION['userId'];
-        ?>
+    ?>
     
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST" ){

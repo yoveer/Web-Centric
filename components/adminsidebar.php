@@ -33,7 +33,7 @@
                     <a href="AdminAddProduct.php">Add Products</a>
                 </li>
                 <li>
-                    <a href="#">Delete Products</a>
+                    <a href="AdminDeleteProduct.php">Delete Products</a>
                 </li>
             </ul>
         </li>
