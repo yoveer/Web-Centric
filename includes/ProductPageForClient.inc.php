@@ -30,21 +30,18 @@
                     
         
                     
-        
-                        
-                 
-                
-
-        
-
         $result = $conn->query($sql);
 
         if ($result) {
-            echo "Added to cart successfully";
+            echo "<div class='alert alert-success' role='success'>";
+            echo "<center>Added to cart successfully</center>";
+            echo "</div>";
             // header("Location: cart.php"); if you want to go to cart
         }
         else {
+            echo "<div class='alert alert-danger' role='alert'>";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "</div>";
         }
         
         
@@ -94,15 +91,13 @@
                                         <input type="text" class="product-quantity" name="quantity" value="1" size="21" />
                                     </div>
                                     <div class="col">
-                                        <button type="submit" name="cart-submit" class="btn btn-success btn-block">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button>
+                                        <button type="submit" name="cart-submit" class="btn btn-success btn-block" onclick="confirm('Are you sure you want to add this to cart?')">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button>
                                         <input type="hidden" name="pid" value="<?php echo $ID ?>" />
                                     </div>
                                 </div>
                             <?php
                             }
 					        ?>
-                            <!-- <input type="submit" value="Add to Cart" name="cart-submit" class="btn btn-success btn-block"/> -->
-                            <!-- <button type="submit" name="cart-submit" class="btn btn-success btn-block">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button> -->
                         </div>
                     </div>
                 </form>

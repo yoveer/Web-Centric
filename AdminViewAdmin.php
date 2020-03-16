@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,15 +48,50 @@
                 </div>
             </nav>
 
-            <h2>Welcome to the admin welcome page</h2>
-            <p>In here an admin can do all kinds of stuffs for the NML's website.</p>
-            <p>An admin can edit everything that can be edited.</p>
-
-            <div class="line"></div>
-
-            <h2>Hello Cute Admin ^_^</h2>
-            <p>Welcome back, how are you?</p>
-
+            <div>
+                <center><h2>Customer Display</h2></center>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                <?php
+                    $sql = "SELECT * FROM User WHERE type='admin'";
+                    $Result = $conn->query($sql);
+					while ($row = mysqli_fetch_assoc($Result)) {
+                        $UID = $row['UserID'];
+                        $fname = $row['Firstname'];
+                        $lname = $row['Lastname'];
+                        $pnum = $row['Phonenumber'];
+                        $add = $row['Address'];
+                        $email = $row['Email'];
+                        $bal = $row['Balance'];
+                ?>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $UID ?></td>
+                                <td><?php echo $fname ?></td>
+                                <td><?php echo $lname ?></td>
+                                <td><?php echo $pnum ?></td>
+                                <td><?php echo $add ?></td>
+                                <td><?php echo $email ?></td>
+                                <td><?php echo $bal ?></td>
+                            </tr>
+                        </tbody>
+                <?php
+                    }
+                ?>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 

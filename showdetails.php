@@ -8,6 +8,13 @@
         <div class="table-responsive">
             <table class="table table-bordered">';
         while($row=mysqli_fetch_array($result)) {
+            ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <?php echo '<img src=" '.$row["photo"].' " width="220" height="220" alt="my image" />' ?>
+        </div>
+        <?php
             $output .='
                 <tr>
                     <td width="20%"><lable>Product ID</label></td>
@@ -30,10 +37,13 @@
                 
         }  
         $output .="</table></div>";
-        echo $output; 
+        ?>
+        
+        <div class="col-md-6">
+            <?php echo $output;?>
+        </div>
+    </div>
+</div> 
+<?php
     }
 ?>
-
-<!-- <tr>
-    <td width="40%"><img class="card-img-top" src='.$row["ProductID"].' alt="Card image cap" ></td>
-</tr> -->

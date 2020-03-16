@@ -86,10 +86,16 @@
                 <td>
                     <select name="pc" required>
                         <option value="" disabled selected>Choose your category</option>
-                        <option value="shoes">shoes</option>
-                        <option value="slippers">slippers</option>
-                        <option value="sandals">sandals</option>
-                        <option value="ballerina">ballerina</option>
+                        <?php 
+                        $sql = "SELECT DISTINCT Category FROM Product";
+                        $Result = $conn->query($sql);
+                        while ($row = mysqli_fetch_assoc($Result)) {
+                            $cat = $row['Category'];
+                        ?>
+                            <option value=<?php echo $cat ?>><?php echo $cat ?></option>
+                        <?php
+                        }
+                        ?>
                     </select>
                 </td>
                 </tr> 

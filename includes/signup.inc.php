@@ -15,47 +15,58 @@ if (isset($_POST['signup-submit'])){ //we know that the user clicked on submit o
     $balance = 0.0;
 
     if (empty($username) || empty($first) || empty($last) || empty($pnumber) || empty($address) || empty($email) || empty($password) || empty($passwordRepeat)){
-        header("Location: ../sign_up.php?error=emptyfields&uid=".$username."&mail=".$email);
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Do not leave the fields empty!</strong> Try again.";
+        header("Location: ../signup.php");
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-        header("Location: ../sign_up.php?error=invalidmailuid");
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid email or username!</strong> Try again.";
+        header("Location: ../signup.php");
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        header("Location: ../sign_up.php?error=invalidmail&uid=".$username);
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid email!</strong> Try again.";
+        header("Location: ../signup.php");
     }
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-        header("Location: ../sign_up.php?error=invaliduid&mail=".$email);
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid username!</strong> Try again.";
+        header("Location: ../signup.php");
+        
     }
     else if (!preg_match("/^[a-zA-Z]*$/", $first)){
-        header("Location: ../sign_up.php?error=invalidfname&mail=".$email);
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid First name!</strong> Try again.";
+        header("Location: ../signup.php");
     }
     else if (!preg_match("/^[a-zA-Z]*$/", $last)){
-        header("Location: ../sign_up.php?error=invalidlname&mail=".$email);
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid Last name!</strong> Try again.";
+        header("Location: ../signup.php");
     }
     else if (!preg_match("/^[0-9]{8}$/", $pnumber)){
-        header("Location: ../sign_up.php?error=invalidpnum&mail=".$email);
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid Phone number!</strong> Try again.";
+        header("Location: ../signup.php");
     }
-    else if (!preg_match("/^[a-zA-Z0-9 ,]*$/", $address)){           
-        header("Location: ../sign_up.php?error=invalidadd&mail=".$email);
-        exit();
+    else if (!preg_match("/^[a-zA-Z0-9 ,]*$/", $address)){   
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid Address!</strong> Try again.";
+        header("Location: ../signup.php");
     }
     else if ($password !== $passwordRepeat){
-        header("Location: ../sign_up.php?error=passwordcheck&uid=".$username."&mail=".$email);
-        exit();
+        session_start();
+        $_SESSION['message'] = "<strong>Passwords does not match!</strong> Try again.";
+        header("Location: ../signup.php");
     }
     else {
         $sql = "SELECT UserID FROM User WHERE UserID=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../sign_up.php?error=sqlerror");
-            exit();
+            session_start();
+            $_SESSION['message'] = "<strong>SQL error!</strong> Try again.";
+            header("Location: ../signup.php");
         }
         else {
             mysqli_stmt_bind_param($stmt, "s", $username);
@@ -63,16 +74,18 @@ if (isset($_POST['signup-submit'])){ //we know that the user clicked on submit o
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
-                header("Location: ../sign_up.php?error=usertaken&mail=".$email);
-                exit();
+                session_start();
+                $_SESSION['message'] = "<strong>Username already taken!</strong> Try again. <br>If this is you please <a href='login.php'>login</a>.";
+                header("Location: ../signup.php");
             }
             else {
 
                 $sql = "INSERT INTO User(UserID, Password, Firstname, Lastname, Phonenumber, Address, Email, Balance) VALUES (?,?,?,?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../sign_up.php?error=sqlerror");
-                    exit();
+                    session_start();
+                    $_SESSION['message'] = "<strong>SQL error!</strong> Try again.";
+                    header("Location: ../signup.php");
                 }
                 else {
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
@@ -90,6 +103,6 @@ if (isset($_POST['signup-submit'])){ //we know that the user clicked on submit o
     mysqli_close($conn);
 }
 else {
-    header("Location: ../sign_up.php");
+    header("Location: ../signup.php");
     exit();
 }

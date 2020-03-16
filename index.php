@@ -8,7 +8,17 @@
 </head>
 
 <body>
-	<?php include 'components/navigation_bar.php'; ?>
+	<?php include 'components/navigation_bar.php';
+		require_once "includes/dbh.inc.php";
+	?>
+	<?php
+	if (@$_GET['login'] == 'success'){
+		echo "<div class='alert alert-success' role='success'>";
+		echo "<center>Welcome back dude</center>";
+		echo "</div>";
+	}
+	?>
+    
 	<section class="content">
 			<div>
 				<center><h2>The Manager's Choice of the week</h2></center>
@@ -18,16 +28,38 @@
 					<li data-target="#prodcarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#prodcarousel" data-slide-to="1"></li>
 					<li data-target="#prodcarousel" data-slide-to="2"></li>
+					<li data-target="#prodcarousel" data-slide-to="3"></li>
 				</ol>
 
 				<div class="carousel-inner" role="listbox">
-					<div class="carousel-item active">
-						<img src="images/product/gf2-2.jpg">
-						<div class="carousel-caption">
-							<h5>Test 1 caption</h5>
+
+				<div class="carousel-item active">
+						<img src="https://cdn.discordapp.com/attachments/666663327153258506/678283398678052931/Untitled.png" alt="First slide">
+						<div class="carousel-caption d-none d-md-block">
+							<div class="banner-text">
+								<h2>NML</h2>
+							</div>
 						</div>
 					</div>
+
+				<?php 
+					$sql = "SELECT * FROM Product, Managerchoice WHERE Product.ProductID = Managerchoice.ProductID";
+					$Result = $conn->query($sql);
+					while ($row = mysqli_fetch_assoc($Result)) {
+						$name = $row['Name'];
+						$photo = $row['photo'];
+				?>
+
+
 					<div class="carousel-item">
+						<img src=<?php echo $photo ?>>
+						<div class="carousel-caption d-none d-md-block">
+							<div class="banner-text">
+								<h2 style="color:black;"><?php echo $name ?></h2>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="carousel-item">
 						<img src="images/product/gf2-4.jpg">
 						<div class="carousel-caption">
 							<h5>Test 2 caption</h5>
@@ -39,7 +71,10 @@
 						<div class="carousel-caption">
 							<h5>Test 3 caption</h5>
 						</div>
-					</div>
+					</div> -->
+				<?php
+					}
+				?>
 				</div>
 				<a class="carousel-control-prev" href="#prodcarousel" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon"></span>

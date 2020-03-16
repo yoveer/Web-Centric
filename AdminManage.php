@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,14 +48,43 @@
                 </div>
             </nav>
 
-            <h2>Welcome to the admin welcome page</h2>
-            <p>In here an admin can do all kinds of stuffs for the NML's website.</p>
-            <p>An admin can edit everything that can be edited.</p>
-
-            <div class="line"></div>
-
-            <h2>Hello Cute Admin ^_^</h2>
-            <p>Welcome back, how are you?</p>
+            <div>
+                <center><h2>Manage The Manager's Choice of the week</h2></center>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Product ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                <?php
+                    $sql = "SELECT * FROM Product, Managerchoice WHERE Product.ProductID=Managerchoice.ProductiD";
+                    $Result = $conn->query($sql);
+					while ($row = mysqli_fetch_assoc($Result)) {
+                        $PID = $row['ProductID'];
+                        $name = $row['Name'];
+                        $desc = $row['Description'];
+                        $photo = $row['photo'];
+                ?>
+                        <tbody>
+                            <tr>
+                                <td><img width="100" height="100" src=<?php echo $photo ?>></td>
+                                <td><?php echo $PID ?></td>
+                                <td><?php echo $name ?></td>
+                                <td><?php echo $desc ?></td>
+                            </tr>
+                        </tbody>
+                <?php
+                    }
+                ?>
+                    </table>
+                </div>
+            </div>
+            
 
         </div>
     </div>

@@ -10,7 +10,7 @@
     <?php include 'components/navigation_bar.php'; 
         require_once "includes/dbh.inc.php";
         $UID = $_SESSION['userId'];
-        ?>
+    ?>
     
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST" ){
@@ -21,11 +21,15 @@
         $result = $conn->query($sql);
 
         if ($result) {
-            echo "Deleted from cart successful";
+            echo "<div class='alert alert-success' role='success'>";
+            echo "<center>Deleted from cart successful</center>";
+            echo "</div>";
             //header("Location: cart.php");
         }
         else {
+            echo "<div class='alert alert-danger' role='alert'>";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "</div>";
         }
         
         
@@ -106,7 +110,7 @@
                                                 ?>
                                                 <tr class="NML-cart-form_cart-item cart_item">
                                                     <td class="product-remove">
-                                                        <input type="image" src="images/cart/remove.png" name="remove-order" alt="Submit Form"/>
+                                                        <input type="image" src="images/cart/remove.png" name="remove-order" alt="Submit Form" onclick="confirm('Are you sure you want to delete this?')"/>
                                                         <input type="hidden" name="key" value='<?php echo $row['idkey'] ?>'/>
                                                     </td>
                                                     <td class="product-thumbnail">
