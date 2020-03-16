@@ -15,7 +15,7 @@ if (isset($_POST['submit-contact'])) {
             header("Location: ../contactus.php?error=invalidmail");
             exit();
         }
-        else if (!preg_match("/^[a-zA-Z0-9 ,!?.]*$/", $message)){
+        else if (!preg_match("/^[a-zA-Z0-9 \s,!?.';:]*$/", $message)){
             header("Location: ../sign_up.php?error=invalidmsg");
             exit();
         }

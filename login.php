@@ -28,7 +28,7 @@
 
                         <div class="form-check" style="text-align: center">
                             <label class="form-check-label">
-                                <a href="sign_up.php">Isn't a registered User ?</a>
+                                <a href="signup.php">Isn't a registered User ?</a>
                             </label>
                         </div>
 
