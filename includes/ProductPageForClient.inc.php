@@ -14,7 +14,7 @@
         // if Qty > quantity then set Qty to quantity
 
         
-        $sql = "SELECT * FROM Cartproduct WHERE ProductID = '$PID'";
+        $sql = "SELECT * FROM Cartproduct WHERE ProductID = '$PID' AND UserID = '$UID'";
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) !== 1){
             $query = "INSERT INTO Cartproduct(ProductID, UserID, Date, ExpiryDate, Qty, Confirmation)

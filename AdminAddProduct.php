@@ -98,32 +98,32 @@
 
             <div>
                 <h2><center>Add Product</center></h2>
-                <div>
+                <div class="container">
                     <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" enctype="multipart/form-data">
                         <table>
                             <tr>
                                 <td>Product ID</td>
-                                <td><input type="text" name="pid" required></td>
+                                <td><input class="form-control mb-4" type="text" name="pid" required></td>
                             </tr>
                             <tr>
                                 <td>Product Name</td>
-                                <td><input type="text" name="pn" required></td>
+                                <td><input class="form-control mb-4" type="text" name="pn" required></td>
                             </tr> 
                             <tr>
                                 <td>Product Description</td>
-                                <td><textarea cols="21" rows="5" name="pd" required></textarea></td>
+                                <td><textarea class="form-control mb-4 rounded-0" rows="5" name="pd" placeholder="Write the product description" required></textarea></td>
                             </tr> 
                             <tr>
                                 <td>Product Price</td>
-                                <td><input type="number" name="pp" required></td>
+                                <td><input class="form-control mb-4" type="number" name="pp" required></td>
                             </tr> 
                             <tr>
                                 <td>Product Quantity</td>
-                                <td><input type="number" name="pq" required></td>
+                                <td><input class="form-control mb-4" type="number" name="pq" required></td>
                             </tr> 
                                 <td>Product Category</td>
                                 <td>
-                                    <select name="pc" required>
+                                    <select class="browser-default custom-select mb-4" name="pc" required>
                                         <option value="" disabled selected>Choose your category</option>
                                         <?php 
                                         $sql = "SELECT DISTINCT Category FROM Product";
@@ -139,11 +139,11 @@
                                 </td>
                             </tr> 
                                 <td>Product Image</td>
-                                <td><input type="file" name="pi"></td>
+                                <td><input class="form-control-file btn btn-info" type="file" name="pi" required></td>
                             </tr>   
                             <tr> 
                                 <td></td>
-                                <td><input type="submit" name="submit-prod" value="Add this product"></td>
+                                <td><button class="btn btn-info btn-block my-4" type="submit" name="submit-prod">Add this product</td>
                             </tr> 
                         </table>
                     </form>
