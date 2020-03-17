@@ -8,30 +8,31 @@ if (isset($_POST['submit-contact'])) {
     $message = $_POST['message'];
 
     if (empty($email) || empty($rate) || empty($message)) {
-        header("Location: ../contactus.php?error=emptyfields");
-        exit();
-    }
-    else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            header("Location: ../contactus.php?error=invalidmail");
-            exit();
-        }
-        else if (!preg_match("/^[a-zA-Z0-9 \s,!?.';:]*$/", $message)){
-            header("Location: ../sign_up.php?error=invalidmsg");
-            exit();
-        }
-        else{
+        session_start();
+        $_SESSION['message'] = "<strong>Do not leave the fields empty!</strong> Try again.";
+        header("Location: ../contactus.php");
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid Mail!</strong> Try again.";
+        header("Location: ../contactus.php");
+    } else if (!preg_match("/^[a-zA-Z0-9 \s,!?.';:]*$/", $message)) {
+        session_start();
+        $_SESSION['message'] = "<strong>Invalid message</strong> Try again.";
+        header("Location: ../contactus.php");
+    } else {
 
-            $sql = "INSERT INTO Contact(email, rating, message) VALUES (?,?,?)";
-            $stmt = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../contactus.php?error=sqlerror");
-                exit();
-            } else {
-                mysqli_stmt_bind_param($stmt, "sss", $email, $rate, $message);
-                mysqli_stmt_execute($stmt);
-                header("Location: ../contactus.php?signup=success");
-                exit();
-            }
+        $sql = "INSERT INTO Contact(email, rating, message) VALUES (?,?,?)";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            session_start();
+            $_SESSION['message'] = "<strong>Do not leave the fields empty!</strong> Try again.";
+            header("Location: ../contactus.php");
+        } else {
+            mysqli_stmt_bind_param($stmt, "sss", $email, $rate, $message);
+            mysqli_stmt_execute($stmt);
+            header("Location: ../contactus.php?contact=success");
+            exit();
+        }
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
