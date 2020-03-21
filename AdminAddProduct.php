@@ -4,7 +4,7 @@
     if(isset($_POST["submit-prod"])){
         $target_dir = "images/product/";
         $name = $target_dir.$_FILES['pi']['name'];
-        $dst='/var/www/html/Web-Centric/images/product/';
+        $dst='/opt/lampp/htdocs/Web-Centric/images/product/';
         $target_file = $target_dir . basename($_FILES["pi"]["name"]);
 
         // Select file type

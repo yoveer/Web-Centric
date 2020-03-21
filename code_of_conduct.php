@@ -7,7 +7,7 @@
         <?php include 'components/navigation_bar.php';?>
         <section class="content">
 
-        <p>
+        <p><h4>
                 <center><h2><strong>The Code</strong></h2></center> 
                 <ul>
                   </br>
@@ -43,7 +43,7 @@
                   </br>
                   <li>It is the responsibility of every member to understand how to apply this Code of Conduct. If in doubt, members are encouraged to seek guidance.</li>
                 </ul>
-        </p>
+        </h4></p>
         <h2><center>**Actually copied!!! Shht!**</center></h2>
     </section>
     <?php include 'components/footer.php';?>

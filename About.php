@@ -18,7 +18,7 @@
   </section>
 
   <section>
-    <h5 style="color: green">
+    <h5 style="color: white">
       <center>We are situated in rose-belle</center>
     </h5>
     <p style="margin:0;">
