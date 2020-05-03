@@ -49,7 +49,7 @@
             </nav>
 
             <div>
-                <center><h2>Customer Display</h2></center>
+                <center><h2>Admin Display</h2></center>
                 <div class="table-responsive">
                     <table class="table table-bordered table-dark table-hover">
                         <thead>

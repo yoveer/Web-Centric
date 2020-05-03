@@ -11,13 +11,14 @@ require_once 'vendor/autoload.php';
 
 $url = 'search_result.json'; // path to your JSON file
 $data = file_get_contents($url); // put the contents of the file into a variable
+$data1 = json_decode($data);
 
 $schema = Schema::fromJsonString(file_get_contents('schema.json')); //path to schema file
 
 $validator = new Validator();
 
 /** @var ValidationResult $result */
-$result = $validator->schemaValidation($data, $schema);
+$result = $validator->schemaValidation($data1, $schema);
 
 if ($result->isValid()) {
     echo 'data is valid', PHP_EOL;

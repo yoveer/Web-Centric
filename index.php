@@ -43,7 +43,7 @@
 					</div>
 
 				<?php 
-					$sql = "SELECT * FROM Product, Managerchoice WHERE Product.ProductID = Managerchoice.ProductID";
+					$sql = "SELECT * FROM Product WHERE flag='1'";
 					$Result = $conn->query($sql);
 					while ($row = mysqli_fetch_assoc($Result)) {
 						$name = $row['Name'];
