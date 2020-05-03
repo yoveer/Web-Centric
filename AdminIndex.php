@@ -144,7 +144,7 @@ session_start();
                     <canvas id="graphCanvas1"></canvas>
                 </div>
 
-                <div id="result_div"></div>
+                <!-- <div id="result_div"></div> -->
                 <script type="text/javascript">
                     function do_search() {
                         var search_term = $("#search_term").val();
@@ -199,10 +199,88 @@ session_start();
                         return false;
                     }
                 </script>
-                
+                <!-- Validate Here -->
+
+                <div class="Generate">
+                    <div class="button">
+                        <button id="Val">Validate Json file</button>
+                    </div>
+
+                    <div id="dataModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Validation For Json</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body" id="validate_detail">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('#Val').click(function() {
+
+                                $.ajax({
+                                    url: "ValidateSchema.php",
+                                    method: "post",
+                                    success: function(data) {
+                                        $('#validate_detail').html(data);
+                                        $('dataModal').modal("show");
+                                    }
+                                });
+                                $('#dataModal').modal("show");
+                            });
+                        });
+                    </script>
+
+                </div>
+                <?php
+
+                // use Opis\JsonSchema\{
+                //     Validator,
+                //     ValidationResult,
+                //     ValidationError,
+                //     Schema
+                // };
+
+                // require_once 'vendor/autoload.php';
+                // function Validate()
+                // {
+                //     $url = 'search_result.json'; // path to your JSON file
+                //     $data = file_get_contents($url); // put the contents of the file into a variable
+
+                //     $schema = Schema::fromJsonString(file_get_contents('schema.json')); //path to schema file
+
+                //     $validator = new Validator();
+
+                //     /** @var ValidationResult $result */
+                //     $result = $validator->schemaValidation($data, $schema);
+
+                //     if ($result->isValid()) {
+                //         echo '$data is valid', PHP_EOL;
+                //     } else {
+                //         /** @var ValidationError $error */
+                //         $error = $result->getFirstError();
+                //         echo '$data is invalid', PHP_EOL;
+                //         echo "Error: ", $error->keyword(), PHP_EOL;
+                //         echo json_encode($error->keywordArgs(), JSON_PRETTY_PRINT), PHP_EOL;
+                //     }
+                // }
+
+                // if (array_key_exists('test', $_POST)) {
+                //     Validate();
+                // }
+
+                ?>
+
+
             </div>
-
-
         </div>
     </div>
     <script type="text/javascript">

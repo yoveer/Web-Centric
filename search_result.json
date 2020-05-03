@@ -1,0 +1,20 @@
+[
+    {
+        "ProductID": "s01",
+        "Name": "S.B.R Footwear",
+        "counter": "0",
+        "Description": "Medical properties. suitable for elderly persons.\r\nColour: Brown Strap"
+    },
+    {
+        "ProductID": "s02",
+        "Name": "S.B.R Footwear",
+        "counter": "2",
+        "Description": "Medical properties. The sole is designed in such a way to provide comfort throughout feet and legs.\r\nColour: Black Strap with 'X' Designs"
+    },
+    {
+        "ProductID": "s04",
+        "Name": "Galz",
+        "counter": "0",
+        "Description": "Classical Ladies footwear with medical properties.\r\nColour: Brown with perforated design."
+    }
+]

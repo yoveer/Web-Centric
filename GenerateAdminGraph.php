@@ -16,8 +16,8 @@ if (isset($_POST['search'])) {
     //JSON creation - You will have to show how you create a JSON file
     $log_filename = "search_result.json";
 
-    $json_data = json_encode($rows);
+    $json_data = json_encode($rows, JSON_PRETTY_PRINT);
 
-    file_put_contents($log_filename, $json_data);
-    echo $json_data;
+    file_put_contents($log_filename, $json_data); //puts data in json file
+    echo $json_data; // getting value
 }
