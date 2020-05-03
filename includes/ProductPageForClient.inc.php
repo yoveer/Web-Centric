@@ -55,7 +55,7 @@ include "xml/querytoXML.php";
         <div class="col-lg-9">
             <div class="row">
                 <?php
-                $sql = "SELECT * FROM Product";
+                $sql = "SELECT * FROM Product WHERE flag='0' OR flag='1'";
 
                 $Result = $conn->query($sql);
                 // $count = 0;

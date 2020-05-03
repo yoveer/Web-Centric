@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    require_once "includes/dbh.inc.php";
+session_start();
+require_once "includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,13 +43,15 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<?php echo "<p style='color:blue;margin:auto;padding:0px 0px 0px 40px'>Hi, ".$_SESSION['userId']." <i class='fa fa-heart'></i></p>";?>
+                        <?php echo "<p style='color:blue;margin:auto;padding:0px 0px 0px 40px'>Hi, " . $_SESSION['userId'] . " <i class='fa fa-heart'></i></p>"; ?>
                     </div>
                 </div>
             </nav>
 
             <div>
-                <center><h2>Manage The Manager's Choice of the week</h2></center>
+                <center>
+                    <h2>Manage The Manager's Choice of the week</h2>
+                </center>
                 <div class="table-responsive">
                     <table class="table table-bordered table-dark table-hover">
                         <thead>
@@ -61,30 +63,30 @@
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
-                <?php
-                    $sql = "SELECT * FROM Product, Managerchoice WHERE Product.ProductID=Managerchoice.ProductiD";
-                    $Result = $conn->query($sql);
-					while ($row = mysqli_fetch_assoc($Result)) {
-                        $PID = $row['ProductID'];
-                        $name = $row['Name'];
-                        $desc = $row['Description'];
-                        $photo = $row['photo'];
-                ?>
-                        <tbody>
-                            <tr>
-                                <td><img width="100" height="100" src=<?php echo $photo ?>></td>
-                                <td><?php echo $PID ?></td>
-                                <td><?php echo $name ?></td>
-                                <td><?php echo $desc ?></td>
-                            </tr>
-                        </tbody>
-                <?php
-                    }
-                ?>
+                        <?php
+                        $sql = "SELECT * FROM Product WHERE flag='1'";
+                        $Result = $conn->query($sql);
+                        while ($row = mysqli_fetch_assoc($Result)) {
+                            $PID = $row['ProductID'];
+                            $name = $row['Name'];
+                            $desc = $row['Description'];
+                            $photo = $row['photo'];
+                        ?>
+                            <tbody>
+                                <tr>
+                                    <td><img width="100" height="100" src=<?php echo $photo ?>></td>
+                                    <td><?php echo $PID ?></td>
+                                    <td><?php echo $name ?></td>
+                                    <td><?php echo $desc ?></td>
+                                </tr>
+                            </tbody>
+                        <?php
+                        }
+                        ?>
                     </table>
                 </div>
             </div>
-            
+
 
         </div>
     </div>
@@ -97,8 +99,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
+        $(document).ready(function() {
+            $('#sidebarCollapse').on('click', function() {
                 $('#sidebar').toggleClass('active');
             });
         });

@@ -12,7 +12,7 @@ if (isset($_POST['login-submit'])){
         header("Location: ../login.php");
     }
     else {
-        $sql = "SELECT * FROM User WHERE UserID=? OR Email=?;";
+        $sql = "SELECT * FROM User WHERE UserID=? OR Email=? AND Ban='0'";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             session_start();

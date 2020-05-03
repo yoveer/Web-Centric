@@ -2,6 +2,23 @@
 session_start();
 require_once "includes/dbh.inc.php";
 ?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $sql = "UPDATE Product SET flag='0' WHERE flag='1'";
+    $result = $conn->query($sql);
+
+    if ($result) {
+        echo "<div class='alert alert-success' role='success'>";
+        echo "<center>Deleted all successfully</center>";
+        echo "</div>";
+    } else {
+        echo "<div class='alert alert-danger' role='alert'>";
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "</div>";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -50,31 +67,26 @@ require_once "includes/dbh.inc.php";
 
             <div>
                 <center>
-                    <h2>Product Display</h2>
+                    <h2>Empty the choices for Manager's Choice of the week</h2>
                 </center>
                 <div class="table-responsive">
                     <table class="table table-bordered table-dark table-hover">
                         <thead>
                             <tr>
                                 <th>Photo</th>
-                                <th>Product Id</th>
+                                <th>Product ID</th>
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Category</th>
+                                <th>&nbsp;</th>
                             </tr>
                         </thead>
                         <?php
-                        $sql = "SELECT * FROM Product WHERE flag='0' OR flag='1'";
+                        $sql = "SELECT * FROM Product WHERE flag='1'";
                         $Result = $conn->query($sql);
                         while ($row = mysqli_fetch_assoc($Result)) {
                             $PID = $row['ProductID'];
                             $name = $row['Name'];
                             $desc = $row['Description'];
-                            $price = $row['Price'];
-                            $quan = $row['Quantity'];
-                            $cat = $row['Category'];
                             $photo = $row['photo'];
                         ?>
                             <tbody>
@@ -83,15 +95,17 @@ require_once "includes/dbh.inc.php";
                                     <td><?php echo $PID ?></td>
                                     <td><?php echo $name ?></td>
                                     <td><?php echo $desc ?></td>
-                                    <td><?php echo $price ?></td>
-                                    <td><?php echo $quan ?></td>
-                                    <td><?php echo $cat ?></td>
                                 </tr>
                             </tbody>
                         <?php
                         }
                         ?>
                     </table>
+                    <div>
+                        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                            <button type="submit" class="btn btn-info">Empty Choices</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

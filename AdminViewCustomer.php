@@ -64,7 +64,7 @@
                             </tr>
                         </thead>
                 <?php
-                    $sql = "SELECT * FROM User WHERE type='normal'";
+                    $sql = "SELECT * FROM User WHERE type='normal' AND Ban='0'";
                     $Result = $conn->query($sql);
 					while ($row = mysqli_fetch_assoc($Result)) {
                         $UID = $row['UserID'];

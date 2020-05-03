@@ -3,22 +3,33 @@
     require_once "includes/dbh.inc.php";
 ?>
 <?php
-    if(isset($_GET['act']) && $_GET['act']=='delete'){
-        $ID=$_GET['id'];
+    // if ($_SERVER["REQUEST_METHOD"] == "POST" ){
+    //     $ID = $_POST['pid'];
         
-        // $request = "SELECT photo FROM Product WHERE ProductID='$ID'";
-        // $result1 = mysqli_query($conn, $request);
-        // $row = mysqli_fetch_assoc($result1);
-        // $name=$row['photo'];
+    //     $sql = "DELETE FROM Product WHERE ProductID=$ID";
 
-        $sql = "UPDATE Product SET flag='2' WHERE ProductID='$ID'";
+    //     $result = $conn->query($sql);
+
+    //     if ($result) {
+    //         echo "<center>Deleted from product successful</center>";
+    //         //header("Location: cart.php");
+    //     }
+    //     else {
+    //         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    //     }
+    //     echo $ID;  
+    // }
+    if(isset($_GET['act']) && $_GET['act']=='ban'){
+        $ID=$_GET['id'];
+
+        $sql = "UPDATE User SET Ban='1' WHERE UserID='$ID' AND type='normal'";
         $result = $conn->query($sql);
 
         if ($result) {
             echo "<div class='alert alert-success' role='success'>";
-            echo "<center>Deleted from product successful</center>";
+            echo "<center>Ban from customer successful</center>";
             echo "</div>";
-            // unlink($name);
+            unlink($name);
         }
         else {
             echo "<div class='alert alert-danger' role='alert'>";
@@ -76,40 +87,43 @@
             </nav>
 
             <div>
-                <center><h2>Product Display for deletion</h2></center>
+                <center><h2>Ban Customer</h2></center>
                 <div class="table-responsive">
                     <form  action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
                         <table class="table table-bordered table-dark table-hover">
                             <thead>
                                 <tr>
-                                    <th>Photo</th>
-                                    <th>Product Id</th>
-                                    <th>Name</th>
-                                    <th>Category</th>
-                                    <th class="product-remove">&nbsp;</th>
+                                    <th>User ID</th>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th class="customer-remove">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "SELECT * FROM Product";
+                                    $sql = "SELECT * FROM User WHERE type='normal' AND Ban='0'";
                                     $Result = $conn->query($sql);
                                     while ($row = mysqli_fetch_assoc($Result)) {
-                                        $PID = $row['ProductID'];
-                                        $name = $row['Name'];
-                                        $cat = $row['Category'];
-                                        $photo = $row['photo'];
+                                        $UID = $row['UserID'];
+                                        $fname = $row['Firstname'];
+                                        $lname = $row['Lastname'];
+                                        $add = $row['Address'];
+                                        $email = $row['Email'];
                                 ?>
                                     <tr>
-                                        <td><img width="100" height="100" src=<?php echo $photo ?>></td>
-                                        <td><?php echo $PID ?></td>
-                                        <td><?php echo $name ?></td>
-                                        <td><?php echo $cat ?></td>
-                                        <!-- <td class="product-remove">
+                                        <td><?php echo $UID ?></td>
+                                        <td><?php echo $fname ?></td>
+                                        <td><?php echo $lname ?></td>
+                                        <td><?php echo $add ?></td>
+                                        <td><?php echo $email ?></td>
+                                        <!-- <td class="customer-remove">
                                             <input type="image" src="images/cart/remove.png" name="remove-order" alt="Submit Form" onclick="confirm('Are you sure you want to delete this?')"/>
                                         </td> -->
                                         <!-- <input type="hidden" name="pid" value='' /> -->
                                         <td>
-                                            <a href='AdminDeleteProduct.php?act=delete&id=<?php echo $PID; ?>' onclick="confirm('Are you sure you want to delete this?')"><img alt="Delete" src="images/cart/remove.png"></a>
+                                            <a href='AdminBanCustomer.php?act=ban&id=<?php echo $UID; ?>' onclick="confirm('Are you sure you want to delete this?')"><img alt="Ban" src="images/cart/remove.png"></a>
                                         </td>
                                     </tr>
                                 <?php

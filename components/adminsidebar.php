@@ -47,7 +47,7 @@
                     <a href="AdminViewCustomer.php">View Customers</a>
                 </li>
                 <li>
-                    <a href="#">Flag/Ban Customers</a>
+                    <a href="AdminBanCustomer.php">Flag/Ban Customers</a>
                 </li>
             </ul>
         </li>
@@ -61,18 +61,29 @@
                     <a href="AdminViewAdmin.php">View Admins</a>
                 </li>
                 <li>
-                    <a href="#">Add Admins</a>
+                    <a href="AdminAddAdmin.php">Add Admins</a>
                 </li>
                 <li>
-                    <a href="#">Delete Admins</a>
+                    <a href="AdminBanAdmin.php">Flag/Ban Admins</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="AdminManage.php">
+        <a href="#ChoiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-tasks"></i>
                 Manager choice of the week
             </a>
+            <ul class="collapse list-unstyled" id="ChoiceSubmenu">
+                <li>
+                    <a href="AdminManage.php">View Choices</a>
+                </li>
+                <li>
+                    <a href="AdminEmptyChoice.php">Empty Choices</a>
+                </li>
+                <li>
+                    <a href="AdminAddChoices.php">Add New Choices</a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="includes/logout.inc.php">
