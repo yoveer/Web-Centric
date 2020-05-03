@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include 'components/header.php';?>
-        <style>
-              /* disparet */
-            .bouton {
-                text-align: center;
-            }
-        </style>    
+        <?php include 'components/header.php';?>   
 	</head>	
 
 	<body>

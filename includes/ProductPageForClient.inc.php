@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<div class='alert alert-success' role='success'>";
         echo "<center>Added to cart successfully</center>";
         echo "</div>";
+        $query = "UPDATE Product SET Counter = Counter + '1' WHERE ProductID = '$PID'";
+        $result = mysqli_query($conn, $query);
         // header("Location: cart.php"); if you want to go to cart
     } else {
         echo "<div class='alert alert-danger' role='alert'>";
