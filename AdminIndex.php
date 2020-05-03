@@ -85,7 +85,7 @@ session_start();
 
             <div class="line"></div>
             <div class="container graph1">
-                <h3>Most Selected Products</h3>
+                <h3>Most Selected Products By ID</h3>
                 <div id="chart-container">
                     <canvas id="graphCanvas"></canvas>
                 </div>
@@ -105,7 +105,7 @@ session_start();
                         var counter = [];
                         var data = <?php echo json_encode($rows) ?>; //put array in data
                         for (var i in data) {
-                            name.push(data[i].Name);
+                            name.push(data[i].ProductID);
                             counter.push(data[i].counter);
                         }
 
@@ -199,29 +199,7 @@ session_start();
                         return false;
                     }
                 </script>
-                <div class="validate_here">
-                    <?php
-                    $log_filename = "search_result.json";
-                    if (!file_exists($log_filename)) {
-                        echo "Json File does not exists";
-                    } else {
-                        $data = json_decode(file_get_contents($log_filename));
-
-                        // Validate
-                        $validator = new JsonSchema\Validator;
-                        $validator->validate($data, (object) ['$ref' => 'file://' . realpath('schema.json')]);
-
-                        if ($validator->isValid()) {
-                            echo "The supplied JSON validates against the schema.\n";
-                        } else {
-                            echo "JSON does not validate. Violations:\n";
-                            foreach ($validator->getErrors() as $error) {
-                                echo sprintf("[%s] %s\n", $error['property'], $error['message']);
-                            }
-                        }
-                    }
-                    ?>
-                </div>
+                
             </div>
 
 
