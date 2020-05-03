@@ -172,7 +172,7 @@
                                             <div class>
                                         </div>
                                         <div class="proceed-to-checkout">
-                                            <a href="#">Proceed to checkout</a>
+                                            <a href="Checkout.php">Proceed to checkout</a>
                                         </div>
                                     </div>
 
@@ -190,11 +190,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
     <?php include 'components/footer.php'; ?>
 </body>
 
