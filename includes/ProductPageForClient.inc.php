@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<div class='alert alert-success' role='success'>";
         echo "<center>Added to cart successfully</center>";
         echo "</div>";
+        include "xml/querytoXML.php";
         // header("Location: cart.php"); if you want to go to cart
     } else {
         echo "<div class='alert alert-danger' role='alert'>";
@@ -42,11 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+include "xml/querytoXML.php";
 ?>
 <!-- PRODUCTS-->
 
-<div class="container-fluid">
+<div class="container-fluid pt-3">
     <div class="row">
+        <br>
         <div class="col-lg-9">
             <div class="row">
                 <?php
@@ -62,16 +65,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $ID = $row['ProductID'];
                 ?>
 
-                    <div class="col-12 col-md-6 col-lg-3" class="container-fluid">
+                    <div class="col-12 col-md-4 col-lg-3 shoeCard" class="container-fluid">
                         <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
                             <div class="card" style="height:550xpx;">
                                 <img class="card-img-top" src=<?php echo $photo ?> alt="Card image cap">
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $name ?></h4>
                                     <p class="card-text"></p>
-                                        <abbr style = "text-decoration: none;" title="<?php echo $desc ?>">
-                                            <?php echo substr($desc, 0, 30)  ?> ...
-                                        </abbr>
+                                    <abbr style="text-decoration: none;" title="<?php echo $desc ?>">
+                                        <?php echo substr($desc, 0, 30)  ?> ...
+                                    </abbr>
                                     <div class="row">
                                         <div class="col">
                                             <p class="btn btn-danger btn-block">Rs <?php echo $price ?></p>
@@ -87,10 +90,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     if (isset($_SESSION['userId'])) { ?>
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" class="product-quantity" name="quantity" value="1" size="21" />
+                                                <input type="number" class="product-quantity form-control inputqty" name="quantity" value="1" min=1 max=6 />
                                             </div>
                                             <div class="col">
-                                                <button type="submit" name="cart-submit" class="btn btn-success btn-block" onclick="confirm('Are you sure you want to add this to cart?')">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button>
+                                                <!-- <button type="submit" name="cart-submit" class="btn btn-success btn-block" onclick="confirm('Are you sure you want to add this to cart?')">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button> -->
+                                                <button type="submit" name="cart-submit" class="btn btn-success btn-block">Add to <i class="material-icons" style="vertical-align: middle;">shopping_cart</i></button>
                                                 <input type="hidden" name="pid" value="<?php echo $ID ?>" />
                                             </div>
                                         </div>
@@ -103,15 +107,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
 
                 <?php
-                // $count = $count + 1;
-                // if($count%4 == 0)
-                //     echo "<br><br><br>";
+                    // $count = $count + 1;
+                    // if($count%4 == 0)
+                    //     echo "<br><br><br>";
                 } //end while
                 ?>
             </div>
         </div>
-        <div class="col-md-auto container Cart">Tama
-
+        <div class="col-md-auto col-lg-3 container Cart">
+            <?php
+            echo "<button class = \" btn btn-warning btn-lg text-center btn-block active btnCart\" type=\"button\" onclick=\"loadXMLDoc()\">Refresh Cart</button>";
+            echo "<br><br>";
+            echo "<div class=\"CartWrapper position-sticky sticky-top\">";
+            echo "<div id=\"demo1\"></div>";
+            echo "<table class=\"table table-bordered table-hover\" id=\"demo\"></table>";
+            echo "</div>";
+            ?>
         </div>
 
     </div>
@@ -140,6 +151,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <script>
     $(document).ready(function() {
+        console.log(1234);
+        loadXMLDoc();
         $('.view_data').click(function() {
             var product_id = $(this).attr("id");
 
@@ -157,4 +170,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $('#dataModal').modal("show");
         });
     });
+
+    function loadXMLDoc() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                myFunction(this);
+            }
+            // myfunction(this);
+        };
+        xmlhttp.open("GET", "/Web-Centric/xml/test.xml", true);
+        xmlhttp.send();
+    }
+
+    function myFunction(xml) {
+        var i;
+        var xmlDoc = xml.responseXML;
+        var y = xmlDoc.getElementsByTagName("User")[0].getAttribute("Name");
+        y = "<h2>User: " + y + "</h2>";
+        document.getElementById("demo1").innerHTML = y;
+        var x = xmlDoc.getElementsByTagName("Product");
+        var table = "<thead class=\"thead-dark\"><tr><th>Shoe Name</th><th>Price</th><th>Quantity</th><th>Photo</th></tr></thead";
+        for (i = 0; i < x.length; i++) {
+            table += "<tr><td>" +
+                x[i].getElementsByTagName("shoe_name")[0].childNodes[0].nodeValue +
+                "</td><td>" +
+                x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue +
+                "</td><td>" +
+                x[i].getElementsByTagName("Quantity")[0].childNodes[0].nodeValue +
+                "</td><td>" + "<img width = \"80px\" height = \"80px\" class=\"\" src=/Web-Centric/" +
+                x[i].getElementsByTagName("shoe_photo")[0].childNodes[0].nodeValue +
+                " alt=\"Cart image\">" + "</td></tr>";
+        }
+        document.getElementById("demo").innerHTML = table;
+    }
 </script>

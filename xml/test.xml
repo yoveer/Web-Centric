@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<User Name="baba">
+  <Shoes>
+    <Product ProductID="s04">
+      <shoe_name>Galz</shoe_name>
+      <price>550</price>
+      <Quantity>1</Quantity>
+      <shoe_photo>images/product/gf14-10.jpg</shoe_photo>
+    </Product>
+  </Shoes>
+</User>

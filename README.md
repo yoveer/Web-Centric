@@ -18,3 +18,5 @@ By Jeremie and Yoveer
 12)(85+)
 13)Presentation skills
 14)Easter Egg --> Disappear
+
+15)check qty when adding to cart

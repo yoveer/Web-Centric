@@ -1,21 +1,21 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
+header {
   height: 100px;
   background: #476685;
   padding: 0 20px;
   color: #fff;
 }
 
-.logo{
+.logo {
   line-height: 100px;
   float: left;
   text-transform: uppercase;
@@ -26,53 +26,58 @@ header{
   border-color: #007bff;
 }
 
-     a.nav-link * { vertical-align: bottom;}
-      .nml  { vertical-align: sub;}
+a.nav-link * {
+  vertical-align: bottom;
+}
+.nml {
+  vertical-align: sub;
+}
 
-
-.menu{
+.menu {
   float: right;
   line-height: 100px;
 }
-k
-.menu a{
+k .menu a {
   color: white;
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 10px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
-.show-menu-btn, .hide-menu-btn{
-  transition: .4s;
+.show-menu-btn,
+.hide-menu-btn {
+  transition: 0.4s;
   font-size: 30px;
   cursor: pointer;
   display: none;
 }
 
-.show-menu-btn{
+.show-menu-btn {
   float: right;
 }
 
-.show-menu-btn i{
+.show-menu-btn i {
   line-height: 100px;
 }
 
-.menu a:hover, .show-menu-btn:hover, .hide-menu-btn:hover{
+.menu a:hover,
+.show-menu-btn:hover,
+.hide-menu-btn:hover {
   color: #3498db;
 }
 
-#chk{
+#chk {
   position: absolute;
   visibility: hidden;
   z-index: -1111;
 }
 
-.content{
+.content {
   padding: 0 20px;
 }
 
-.content img{
+.content img {
   width: 100%;
   max-width: 700px;
   margin: 20px 0;
@@ -80,45 +85,44 @@ k
   margin-left: auto;
   margin-right: auto;
   width: 48%;
-
 }
 
-.content p{
+.content p {
   text-align: justify;
 }
 
-@media screen and (max-width:900px){
-  .show-menu-btn,.hide-menu-btn{
-      display: block;
+@media screen and (max-width: 900px) {
+  .show-menu-btn,
+  .hide-menu-btn {
+    display: block;
   }
-/* @media screen and (max-width:900px){ */
+  /* @media screen and (max-width:900px){ */
 
-
-.menu{
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      background: #333;
-      right: -100%;
-      top: 0;
-      text-align: center;
-      padding: 40px 0;
-      line-height: normal;
-      transition: .7s;
+  .menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #333;
+    right: -100%;
+    top: 0;
+    text-align: center;
+    padding: 40px 0;
+    line-height: normal;
+    transition: 0.7s;
   }
-  .menu a{
-      display: block;
-      padding: 20px;
-  }
-
-  .hide-menu-btn{
-      position: absolute;
-      top: 40px;
-      right: 40px;
+  .menu a {
+    display: block;
+    padding: 20px;
   }
 
-  #chk:checked ~ .menu{
-      right: 0;
+  .hide-menu-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+
+  #chk:checked ~ .menu {
+    right: 0;
   }
 
   /* #chk:checked{
@@ -126,20 +130,25 @@ k
   } */
 }
 
-footer{
+footer {
   background: black;
   color: gray;
   font-size: 12px;
   padding: 20px 20px;
   text-align: center;
-
 }
 
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
-.content, body{
+.content,
+body {
   background: rgb(125, 229, 255);
-  background: -webkit-linear-gradient(to bottom,  rgb(155, 149, 243), rgb(26, 36, 228));
-  background: linear-gradient(to bottom, rgb(155, 149, 243), rgb(26, 36, 228)), no-repeat;
+  background: -webkit-linear-gradient(
+    to bottom,
+    rgb(155, 149, 243),
+    rgb(26, 36, 228)
+  );
+  background: linear-gradient(to bottom, rgb(155, 149, 243), rgb(26, 36, 228)),
+    no-repeat;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -148,21 +157,20 @@ footer{
   width: 100%;
 }
 
-
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
 /* go top */
-.gotop{
+.gotop {
   position: fixed;
   width: 50px;
   height: 50px;
   background: grey;
   bottom: 3px;
   right: 15px;
-  opacity: .5;
+  opacity: 0.5;
   border-radius: 20px;
 
   text-decoration: none;
@@ -172,17 +180,14 @@ table {
   font-size: 40px;
 }
 
-
-@media screen and (max-width:700px){
-.gotop{
-
-  bottom: 10px;
-}
+@media screen and (max-width: 700px) {
+  .gotop {
+    bottom: 10px;
+  }
 }
 
-.center{
-
-  text-align:center;
+.center {
+  text-align: center;
 }
 
 /* The sidebar menu */
@@ -206,7 +211,7 @@ table {
   color: #818181;
   display: block;
 }
-.sidenav p{
+.sidenav p {
   padding: 6px 8px 6px 16px;
   font-size: 25px;
   color: #ffffff;
@@ -218,15 +223,15 @@ table {
   color: #f1f1f1;
 }
 
-
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
-
-
-
 
 /* SEARCH BAR */
 .topnav {
@@ -242,12 +247,11 @@ table {
   font-size: 17px;
 }
 
-
 .topnav .search-container {
   float: right;
 }
 
-.topnav input[type=text] {
+.topnav input[type="text"] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
@@ -273,7 +277,8 @@ table {
   .topnav .search-container {
     float: none;
   }
-  .topnav input[type=text], .topnav .search-container button {
+  .topnav input[type="text"],
+  .topnav .search-container button {
     float: none;
     display: block;
     text-align: left;
@@ -281,8 +286,32 @@ table {
     margin: 0;
     padding: 14px;
   }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
+  .topnav input[type="text"] {
+    border: 1px solid #ccc;
   }
 }
 
+.Cart .CartWrapper {
+  top: 50px;
+  overflow-y: scroll;
+  height: 500px;
+}
+
+/* table#demo,
+table#demo th,
+table#demo td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+table#demo th,
+table#demo td {
+  padding: 5px;
+} */
+
+input.inputqty{
+  border-width: 3px;
+}
+
+div.shoeCard{
+  padding-bottom: 30px;
+}
