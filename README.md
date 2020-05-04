@@ -19,4 +19,4 @@ By Jeremie and Yoveer
 13)Presentation skills (eppp)
 14)Easter Egg --> Disappear
 
-15)check qty when adding to cart
+15)check qty when adding to cart--------------------> limit number added

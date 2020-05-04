@@ -2,7 +2,7 @@
 require_once "includes/dbh.inc.php";
 
 $sQuery = "SELECT ProductID, Qty FROM Cartproduct WHERE UserID = '".$_SESSION['userId']."'";
-$nameQuery = "SELECT Firstname FROM User WHERE UserID = '".$_SESSION['userId']."'";
+$nameQuery = "SELECT CONCAT( Firstname, \" \", Lastname ) AS Fullname FROM User WHERE UserID = '".$_SESSION['userId']."'";
 
 // $sQuery = "SELECT ProductID, Qty FROM Cartproduct WHERE UserID = 'yoveer'";
 // $nameQuery = "SELECT Firstname FROM User WHERE UserID = 'yoveer'";
@@ -21,7 +21,7 @@ $dom = new DOMDocument('1.0');
 $root = $dom->createElement('User');
 
 $rowname = $resultname->fetch_array();
-$user_name = $rowname['Firstname'];
+$user_name = $rowname['Fullname'];
 $root->setAttribute("Name", $user_name);
 
 $Shoes = $dom->createElement('Shoes');
