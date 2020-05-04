@@ -91,7 +91,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "SELECT * FROM Product";
+                                    $sql = "SELECT * FROM Product WHERE flag='0' OR flag='1'";
                                     $Result = $conn->query($sql);
                                     while ($row = mysqli_fetch_assoc($Result)) {
                                         $PID = $row['ProductID'];

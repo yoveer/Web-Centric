@@ -103,7 +103,7 @@
                                             <tbody>
                                                 <?php
 
-                                                    $sql = "SELECT * FROM Cartproduct, Product, User WHERE Cartproduct.ProductID = Product.ProductID AND Cartproduct.UserID = User.UserID AND Cartproduct.UserID = '$UID'";
+                                                    $sql = "SELECT * FROM Cartproduct, Product, User WHERE Cartproduct.ProductID = Product.ProductID AND Cartproduct.UserID = User.UserID AND Cartproduct.UserID = '$UID' AND Confirmation='0'";
                                                     $Result = $conn->query($sql);
                                                     while ($row = mysqli_fetch_assoc($Result)) {
 
@@ -139,16 +139,6 @@
                                                 
                                                     
                                                 ?>
-                                                <tr>
-                                                    <td colspan="6" class="actions">
-                                                        <div class="coupon">
-                                                            <input type="text" name="coupon_code" class="input-text" id="coupon_code" value placeholder="Coupon Code">
-                                                            <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
-                                                        </div>
-                                                        <button type="submit" class="button" name="update_cart" value="Update cart" disabled>Update cart</button>
-                                                        
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </form>
@@ -172,7 +162,7 @@
                                             <div class>
                                         </div>
                                         <div class="proceed-to-checkout">
-                                            <a href="Checkout.php">Proceed to checkout</a>
+                                            <a href="Checkout.php?changedatabase=true">Proceed to checkout</a>
                                         </div>
                                     </div>
 

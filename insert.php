@@ -2,11 +2,6 @@
 session_start();
 $UID = $_SESSION['userId'];
 require_once "includes/dbh.inc.php";
-$sql = "UPDATE Cartproduct SET Confirmation='1' WHERE Confirmation='0' AND UserID='$UID'";
+$sql = "UPDATE Cartproduct, Product, User SET Confirmation='2' WHERE Cartproduct.ProductID = Product.ProductID AND Cartproduct.UserID = User.UserID AND Cartproduct.UserID = '$UID' AND Confirmation='1'";
 $result = mysqli_query($conn, $sql);
-if ($result){
-    echo "good";
-}else {
-    echo "not good";
-}
 ?>

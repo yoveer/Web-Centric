@@ -3,22 +3,6 @@
     require_once "includes/dbh.inc.php";
 ?>
 <?php
-    // if ($_SERVER["REQUEST_METHOD"] == "POST" ){
-    //     $ID = $_POST['pid'];
-        
-    //     $sql = "DELETE FROM Product WHERE ProductID=$ID";
-
-    //     $result = $conn->query($sql);
-
-    //     if ($result) {
-    //         echo "<center>Deleted from product successful</center>";
-    //         //header("Location: cart.php");
-    //     }
-    //     else {
-    //         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    //     }
-    //     echo $ID;  
-    // }
     if(isset($_GET['act']) && $_GET['act']=='ban'){
         $ID=$_GET['id'];
 

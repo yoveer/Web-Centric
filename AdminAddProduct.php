@@ -3,9 +3,10 @@
     require_once "includes/dbh.inc.php";
     if(isset($_POST["submit-prod"])){
         $target_dir = "images/product/";
-        $name = $target_dir.$_FILES['pi']['name'];
-        $dst='/opt/lampp/htdocs/Web-Centric/images/product/';
-        $target_file = $target_dir . basename($_FILES["pi"]["name"]);
+        $randoname = rand(0,10000).$_FILES['pi']['name'];
+        $name = $target_dir.$randoname;
+        $dst='/var/www/html/Web-Centric/images/product/'; // /opt/lampp/htdocs
+        $target_file = $target_dir . basename($randoname);
 
         // Select file type
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -24,8 +25,8 @@
         if( in_array($imageFileType,$extensions_arr) ){
         
             // Insert record
-            $sql="INSERT INTO Product(ProductID, Name, Description, Price, Quantity, Category, photo) 
-                    VALUES ('$prodid', '$prodname', '$proddesc', '$prodprice', '$prodquan', '$prodcat', '$name')";
+            $sql="INSERT INTO Product(ProductID, Name, Description, Price, Quantity, Category, photo, counter) 
+                    VALUES ('$prodid', '$prodname', '$proddesc', '$prodprice', '$prodquan', '$prodcat', '$name', '0')";
             $result = $conn->query($sql);
 
             if ($result) {
@@ -33,7 +34,11 @@
                 echo "<center>Added product successfully</center>";
                 echo "</div>";
                 // Upload file
-                move_uploaded_file($_FILES['pi']['tmp_name'],$dst.$_FILES['pi']['name']);
+                if (move_uploaded_file($_FILES['pi']['tmp_name'],$dst.$randoname)) {
+                    echo "The file ". basename( $randoname). " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
                 // header("Location: ../Product_collections.php?addprod=success");
                 // exit();
             }
@@ -126,7 +131,7 @@
                                     <select class="browser-default custom-select mb-4" name="pc" required>
                                         <option value="" disabled selected>Choose your category</option>
                                         <?php 
-                                        $sql = "SELECT DISTINCT Category FROM Product";
+                                        $sql = "SELECT * FROM Categories";
                                         $Result = $conn->query($sql);
                                         while ($row = mysqli_fetch_assoc($Result)) {
                                             $cat = $row['Category'];
