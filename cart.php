@@ -16,7 +16,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST" ){
         $ID = $_POST['key'];
         
-        $sql = "DELETE FROM Cartproduct WHERE idkey=$ID AND UserID='$UID'";
+        $sql = "DELETE FROM Cartproduct WHERE cartID='$ID' AND UserID='$UID'";
 
         $result = $conn->query($sql);
 
@@ -111,7 +111,7 @@
                                                 <tr class="NML-cart-form_cart-item cart_item">
                                                     <td class="product-remove">
                                                         <input type="image" src="images/cart/remove.png" name="remove-order" alt="Submit Form" onclick="confirm('Are you sure you want to delete this?')"/>
-                                                        <input type="hidden" name="key" value='<?php echo $row['idkey'] ?>'/>
+                                                        <input type="hidden" name="key" value='<?php echo $row['cartID'] ?>'/>
                                                     </td>
                                                     <td class="product-thumbnail">
                                                         <a href="#">

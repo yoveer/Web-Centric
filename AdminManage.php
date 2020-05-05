@@ -64,7 +64,7 @@ require_once "includes/dbh.inc.php";
                             </tr>
                         </thead>
                         <?php
-                        $sql = "SELECT * FROM Product WHERE flag='1'";
+                        $sql = "SELECT * FROM Product WHERE flag='1'"; // When Flag = 1 means that it has been selected for manager's choice
                         $Result = $conn->query($sql);
                         while ($row = mysqli_fetch_assoc($Result)) {
                             $PID = $row['ProductID'];

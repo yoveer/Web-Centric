@@ -5,7 +5,7 @@
         $target_dir = "images/product/";
         $randoname = rand(0,10000).$_FILES['pi']['name'];
         $name = $target_dir.$randoname;
-        $dst='/var/www/html/Web-Centric/images/product/'; // /opt/lampp/htdocs
+        $dst='/opt/lampp/htdocs/Web-Centric/images/product/'; // /opt/lampp/htdocs
         $target_file = $target_dir . basename($randoname);
 
         // Select file type

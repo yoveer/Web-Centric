@@ -109,9 +109,6 @@ include "xml/querytoXML.php";
                     </div>
 
                 <?php
-                    // $count = $count + 1;
-                    // if($count%4 == 0)
-                    //     echo "<br><br><br>";
                 } //end while
                 ?>
             </div>
