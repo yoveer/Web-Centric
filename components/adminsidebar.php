@@ -69,7 +69,7 @@
             </ul>
         </li>
         <li>
-        <a href="#ChoiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <a href="#ChoiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-tasks"></i>
                 Manager choice of the week
             </a>
@@ -84,6 +84,12 @@
                     <a href="AdminAddChoices.php">Add New Choices</a>
                 </li>
             </ul>
+        </li>
+        <li>
+            <a href="CRUD_HTA/indexSupp.php">
+                <i class="fas fa-parachute-box"></i>
+                Suppliers
+            </a>
         </li>
         <li>
             <a href="includes/logout.inc.php">

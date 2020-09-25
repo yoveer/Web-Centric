@@ -133,7 +133,7 @@ session_start();
             </div>
             <div class="line"></div>
             <div class="container graph2">
-                <h3>Search Most Selected Client Choices By Name / Descrition</h3>
+                <h3>Search Most Selected Client Choices By Name / Description</h3>
                 <div id="search_box">
                     <form method="post" action="GenerateAdminGraph.php" onsubmit="return do_search();">
                         <input type="text" id="search_term" name="search_term" placeholder="Enter Search" onkeyup="do_search();">

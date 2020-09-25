@@ -155,10 +155,10 @@ include "xml/querytoXML.php";
     $(document).ready(function() {
         console.log(1234);
         loadXMLDoc();
-        $('.view_data').click(function() {
+        $('.view_data').click(function() {          //jquery
             var product_id = $(this).attr("id");
 
-            $.ajax({
+            $.ajax({                                //ajax
                 url: "showdetails.php",
                 method: "post",
                 data: {
