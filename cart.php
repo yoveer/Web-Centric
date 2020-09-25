@@ -16,7 +16,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST" ){
         $ID = $_POST['key'];
         
-        $sql = "DELETE FROM Cartproduct WHERE cartID=$ID AND UserID='$UID'";
+        $sql = "DELETE FROM Cartproduct WHERE cartID='$ID' AND UserID='$UID'";
 
         $result = $conn->query($sql);
 

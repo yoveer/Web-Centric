@@ -1,4 +1,46 @@
 <?xml version="1.0"?>
+<<<<<<< HEAD
 <User Name="">
   <Shoes/>
+=======
+<User Name="Mungun Yoveer">
+  <Shoes>
+    <Product ProductID="s03">
+      <shoe_name>Galz</shoe_name>
+      <price>450</price>
+      <Quantity>1</Quantity>
+      <shoe_photo>images/product/gf14-5.jpg</shoe_photo>
+    </Product>
+    <Product ProductID="s05">
+      <shoe_name>Regina Ballerina</shoe_name>
+      <price>350</price>
+      <Quantity>1</Quantity>
+      <shoe_photo>images/product/gf15-6.jpg</shoe_photo>
+    </Product>
+    <Product ProductID="s18">
+      <shoe_name>PU-Ozzy Slippers</shoe_name>
+      <price>175</price>
+      <Quantity>1</Quantity>
+      <shoe_photo>images/product/gf39-14.jpg</shoe_photo>
+    </Product>
+    <Product ProductID="s04">
+      <shoe_name>Galz</shoe_name>
+      <price>550</price>
+      <Quantity>1</Quantity>
+      <shoe_photo>images/product/gf14-10.jpg</shoe_photo>
+    </Product>
+    <Product ProductID="s06">
+      <shoe_name>Velvet Slippers</shoe_name>
+      <price>300</price>
+      <Quantity>1</Quantity>
+      <shoe_photo>images/product/gf15-16.jpg</shoe_photo>
+    </Product>
+    <Product ProductID="s11">
+      <shoe_name>Ballerina</shoe_name>
+      <price>300</price>
+      <Quantity>1</Quantity>
+      <shoe_photo>images/product/gf30-5.jpg</shoe_photo>
+    </Product>
+  </Shoes>
+>>>>>>> 4199629c36c81399e65c385e74a2f0daf0e36c61
 </User>

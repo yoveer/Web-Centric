@@ -26,7 +26,9 @@
             echo "</div>";
         }
     }
-
+    // 0 - cart
+    // 1 - was checkout
+    // 2 - was printed
     ?>
 
     <!-- DISPLAY CHECKOUT -->
